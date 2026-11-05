@@ -1,0 +1,13 @@
+proposed_variable,proposed_role,reason,status
+_BMI5,bmi,Adiposity risk; verify scale and missing codes,UNREVIEWED
+_AGE80,age,Age in physical units; verify top coding,UNREVIEWED
+_AGEG5YR,ordinal_age,Alternative age representation; do not treat group code as years,UNREVIEWED
+EXERANY2,activity,Physical activity; verify binary recode,UNREVIEWED
+PHYSHLTH,physical_days,Health status; verify zero-day sentinel,UNREVIEWED
+MENTHLTH,mental_days,Health status; verify zero-day sentinel,UNREVIEWED
+HIGHBP3,cardiovascular,Hypertension; verify pregnancy categories,UNREVIEWED
+TOLDHI2,cardiovascular,Cholesterol history; assess diagnosis-time ambiguity,UNREVIEWED
+SMOKE100,lifestyle,Smoking exposure,UNREVIEWED
+DIABETE3,target,Exclude from predictors,PROHIBITED_PREDICTOR
+INSULIN,leakage,Diabetes treatment directly related to diagnosis,PROHIBITED_PREDICTOR
+DIABAGE2,leakage,Age at diabetes diagnosis,PROHIBITED_PREDICTOR
