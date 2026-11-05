@@ -30,3 +30,9 @@ Actual Google Drive evidence (raw CSV/metadata/preflight/PDF) is not present in 
 20 nontraining unit/integration tests PASS with Python 3.12.14. New tests execute the real audit CLI on the synthetic five-row XPT, repeat preflight with distinct report names, verify preservation of existing reports and visible FileExistsError, verify JSONDecodeError is present in the notebook-facing error and full log, and block sklearn/scipy/joblib/boosting imports in a subprocess to prove audit dependency isolation. No Train/CV, model fitting, Final Test or real BRFSS analysis ran.
 
 The user's Colab traceback reports Python 3.13 and only CalledProcessError exit 1. The child stderr was not provided, so its actual cause is not established. The notebook now logs and exposes it; this does not establish that the actual Drive ZIP/schema succeeds in Colab. Codebook, raw-data, split-history and timing approvals remain unchanged/pending.
+
+## Current schema verification — 2026-11-06
+
+Schema was backed up before edits under `/workspace/brfss_schema_backups/`, content hash `1452e7a4551f495935f0a595f948df95a3cdf0d348a72fb507613ac7cbf8245a`. All pre-existing unresolved requirements were preserved. No VERIFIED/safe approvals were granted. Timing remains pending for every active variable. Survey weight/strata/PSU now require individual definition/page checks instead of relying on a blanket design status. Train/Test history remains UNKNOWN.
+
+20 nontraining tests passed. `00_Audit/current_schema_verification.json` records the current schema-only audit and missing evidence. Actual raw-code counts, codebook PDF and page-evidence artifacts are absent in this workspace, so no real-data raw audit or codebook comparison was rerun. No Train/CV or Final Test ran; original data were not modified.

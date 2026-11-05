@@ -53,6 +53,14 @@ def readiness(s):
         if v.get('verification_status')!='VERIFIED':issues.append(f'{n}: source verification incomplete.')
         if not isinstance(v.get('citation_page'),int) or v.get('citation_page',0)<1:issues.append(f'{n}: actual codebook PDF page missing.')
         if n in s['features'] and v.get('leakage_review')!='safe':issues.append(f'{n}: leakage/timing review pending.')
+        if n in s['features'] and v.get('leakage_review')=='safe':
+            timing=v.get('timing_assessment',{})
+            if not isinstance(timing,dict) or timing.get('status')!='REVIEWED' or not timing.get('reason'):
+                issues.append(f'{n}: safe flag lacks a documented reviewed timing assessment.')
+    for role in ['weight','strata','psu']:
+        item=s.get('design_review',{}).get('variables',{}).get(role,{})
+        if item.get('column')!=s.get(role) or item.get('verification_status')!='VERIFIED' or not isinstance(item.get('citation_page'),int) or item.get('citation_page',0)<1:
+            issues.append(f'{role}: individual official definition/page verification missing.')
     if not s.get('codebook_access',{}).get('sha256'):issues.append('Official document SHA256 missing.')
     if s.get('split_history',{}).get('status')!='REVIEWED':issues.append('Existing split/prior Test-use history unknown.')
     return sorted(set(issues))

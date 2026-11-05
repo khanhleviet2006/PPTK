@@ -34,7 +34,13 @@
         1,
         9999
       ],
-      "scale_semantics": "Current pipeline applies scale ONLY to B3 BMI grouping. Other predictors/interactions retain raw scaled units before fold scaling."
+      "scale_semantics": "Current pipeline applies scale ONLY to B3 BMI grouping. Other predictors/interactions retain raw scaled units before fold scaling.",
+      "timing_assessment": {
+        "status": "PENDING_SOURCE_AND_MEASUREMENT_TIMING_REVIEW",
+        "use_case": "Concurrent self-reported diabetes status; not incident-risk forecasting",
+        "reason": "Measured at survey; chronology relative to diabetes diagnosis is not established by raw code frequencies. Prior diagnosis may affect behavior, health reports and clinical screening.",
+        "onset_order_established": false
+      }
     },
     "_AGE80": {
       "type": "continuous",
@@ -50,7 +56,13 @@
       "valid_range": [
         18,
         80
-      ]
+      ],
+      "timing_assessment": {
+        "status": "PENDING_SOURCE_AND_MEASUREMENT_TIMING_REVIEW",
+        "use_case": "Concurrent self-reported diabetes status; not incident-risk forecasting",
+        "reason": "Measured at survey; chronology relative to diabetes diagnosis is not established by raw code frequencies. Prior diagnosis may affect behavior, health reports and clinical screening.",
+        "onset_order_established": false
+      }
     },
     "EXERANY2": {
       "type": "categorical",
@@ -75,7 +87,13 @@
       "raw_valid_values": [
         1,
         2
-      ]
+      ],
+      "timing_assessment": {
+        "status": "PENDING_SOURCE_AND_MEASUREMENT_TIMING_REVIEW",
+        "use_case": "Concurrent self-reported diabetes status; not incident-risk forecasting",
+        "reason": "Measured at survey; chronology relative to diabetes diagnosis is not established by raw code frequencies. Prior diagnosis may affect behavior, health reports and clinical screening.",
+        "onset_order_established": false
+      }
     },
     "PHYSHLTH": {
       "type": "continuous",
@@ -129,7 +147,13 @@
         29,
         30,
         88
-      ]
+      ],
+      "timing_assessment": {
+        "status": "PENDING_SOURCE_AND_MEASUREMENT_TIMING_REVIEW",
+        "use_case": "Concurrent self-reported diabetes status; not incident-risk forecasting",
+        "reason": "Measured at survey; chronology relative to diabetes diagnosis is not established by raw code frequencies. Prior diagnosis may affect behavior, health reports and clinical screening.",
+        "onset_order_established": false
+      }
     },
     "MENTHLTH": {
       "type": "continuous",
@@ -183,7 +207,13 @@
         29,
         30,
         88
-      ]
+      ],
+      "timing_assessment": {
+        "status": "PENDING_SOURCE_AND_MEASUREMENT_TIMING_REVIEW",
+        "use_case": "Concurrent self-reported diabetes status; not incident-risk forecasting",
+        "reason": "Measured at survey; chronology relative to diabetes diagnosis is not established by raw code frequencies. Prior diagnosis may affect behavior, health reports and clinical screening.",
+        "onset_order_established": false
+      }
     },
     "BPHIGH4": {
       "type": "categorical",
@@ -204,7 +234,13 @@
         2,
         3,
         4
-      ]
+      ],
+      "timing_assessment": {
+        "status": "PENDING_SOURCE_AND_MEASUREMENT_TIMING_REVIEW",
+        "use_case": "Concurrent self-reported diabetes status; not incident-risk forecasting",
+        "reason": "Measured at survey; chronology relative to diabetes diagnosis is not established by raw code frequencies. Prior diagnosis may affect behavior, health reports and clinical screening.",
+        "onset_order_established": false
+      }
     },
     "TOLDHI2": {
       "type": "categorical",
@@ -223,7 +259,13 @@
       "valid_values": [
         1,
         2
-      ]
+      ],
+      "timing_assessment": {
+        "status": "PENDING_SOURCE_AND_MEASUREMENT_TIMING_REVIEW",
+        "use_case": "Concurrent self-reported diabetes status; not incident-risk forecasting",
+        "reason": "Measured at survey; chronology relative to diabetes diagnosis is not established by raw code frequencies. Prior diagnosis may affect behavior, health reports and clinical screening.",
+        "onset_order_established": false
+      }
     },
     "SMOKE100": {
       "type": "categorical",
@@ -242,7 +284,13 @@
       "valid_values": [
         1,
         2
-      ]
+      ],
+      "timing_assessment": {
+        "status": "PENDING_SOURCE_AND_MEASUREMENT_TIMING_REVIEW",
+        "use_case": "Concurrent self-reported diabetes status; not incident-risk forecasting",
+        "reason": "Measured at survey; chronology relative to diabetes diagnosis is not established by raw code frequencies. Prior diagnosis may affect behavior, health reports and clinical screening.",
+        "onset_order_established": false
+      }
     }
   },
   "roles": {
@@ -351,7 +399,27 @@
     "verification_status": "UNVERIFIED_PROPOSAL",
     "codebook_reference": "https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf",
     "citation_page": null,
-    "not_predictors": true
+    "not_predictors": true,
+    "variables": {
+      "weight": {
+        "column": "_LLCPWT",
+        "verification_status": "UNVERIFIED_PROPOSAL",
+        "citation_page": null,
+        "definition_status": "Official 2015 definition and observed diagnostics required; variable name alone is insufficient."
+      },
+      "strata": {
+        "column": "_STSTR",
+        "verification_status": "UNVERIFIED_PROPOSAL",
+        "citation_page": null,
+        "definition_status": "Official 2015 definition and observed diagnostics required; variable name alone is insufficient."
+      },
+      "psu": {
+        "column": "_PSU",
+        "verification_status": "UNVERIFIED_PROPOSAL",
+        "citation_page": null,
+        "definition_status": "Official 2015 definition and observed diagnostics required; variable name alone is insufficient."
+      }
+    }
   },
   "user_reported_observations": {
     "xpt_rows": 441456,
