@@ -85,3 +85,13 @@ Shortlist hiện có 8 biến gốc active. Top 10/15/20 bị giới hạn về 
 Kiểm thử bổ sung: `python -m unittest discover -s tests -p 'test_*.py'`. Fixture XPT chỉ có 5 dòng giả lập, không có bệnh nhân BRFSS. Không dùng kết quả kiểm thử phần mềm để khẳng định Accuracy >82.26% hay cải thiện công bằng so với Chang et al. (2022).
 
 `audit-codes --data ZIP --schema schema.reviewed.json --output NEW_DIR` chạy độc lập khi schema chưa duyệt: đếm mã raw trên **toàn bộ** dữ liệu cho shortlist định trước và nhãn, xuất `raw_code_counts.csv`/`raw_code_audit.json`. Không split, fit, chọn biến hoặc đánh giá mô hình; không coi tần suất quan sát là xác minh codebook. Notebook chạy bước này trước review gate; cần đủ RAM cho full XPT.
+
+## Tiếp tục audit sau Colab — chưa Train/CV
+
+Người dùng báo XPT có 441456 bản ghi và `HIGHBP3` không tồn tại. Schema dự án hiện dùng **ứng viên `BPHIGH4` chưa xác minh**, không gán lại chứng cứ của HIGHBP3. Bản schema cũ trên Drive không tự cập nhật chỉ vì GitHub thay đổi: ô preflight hiện gọi migration dựa trên header thật, yêu cầu BPHIGH4 hiện diện và HIGHBP3 vắng mặt. Bản cũ được sao lưu theo hash, giữ mọi ghi chú/yêu cầu chưa giải quyết, hủy review/citation kế thừa, không tự đặt safe/VERIFIED. Nếu thiếu bằng chứng hoặc có hai khóa thì không tự ghi đè.
+
+Notebook hiện **AUDIT ONLY**: không gọi smoke-training, Train/CV hoặc Final Test. Ô review không còn assert `STOP` khi chưa duyệt; nó ghi `variable_evidence_review.csv` và `review_summary.json` rồi hiển thị các điều kiện còn thiếu. `audit_only=true` cũng chặn CLI train trước khi đọc dữ liệu hoặc tạo thư mục run. Giao thức Train/CV trong source được giữ cho giai đoạn được cho phép sau này.
+
+Các ô có sẵn nay: cập nhật checkout sạch bằng fast-forward (không reset local edits), kiểm tra ZIP/XPT, migration schema có backup, tái sử dụng raw audit chỉ khi hash/coverage/design diagnostics phù hợp hoặc tạo audit mới không ghi đè, lấy PDF CDC và chỉ mục trang PDF thật, so sánh raw codes/hash/CRC, thống kê survey design, composite definitions và liệt kê split candidates. Không cần dán thêm ô ngoài dự án. Trùng mã với proposal **không** xác nhận ý nghĩa CDC; PDF page match **không** xác nhận biến/year/timing. Mọi xác minh semantic còn cần đọc nguồn thật.
+
+Bản cập nhật chưa truy cập được raw_code_counts.csv trên Drive hoặc PDF CDC từ workspace (403). Số 441456 là user-reported, chưa được workspace kiểm chứng; không tự kết luận ZIP đúng nguồn chỉ dựa vào số dòng. Survey diagnostics là mô tả không trọng số, không phải population inference; prior Test-use history vẫn UNKNOWN. Composite rỗng nghĩa là disabled, không phải đã ablate thành công.

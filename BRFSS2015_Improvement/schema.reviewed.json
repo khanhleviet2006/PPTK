@@ -185,7 +185,7 @@
         88
       ]
     },
-    "HIGHBP3": {
+    "BPHIGH4": {
       "type": "categorical",
       "missing_codes": [
         7,
@@ -194,7 +194,7 @@
       "recode": {},
       "scale": 1,
       "leakage_review": "pending",
-      "rationale": "Hypertension history; retain proposed pregnancy-only and borderline categories separately; diagnosis timing unresolved.",
+      "rationale": "User reports HIGHBP3 absent; BPHIGH4 candidate requires actual header, official 2015 definition and timing review.",
       "codebook_reference": "https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf",
       "verification_status": "UNVERIFIED_PROPOSAL",
       "citation_page": null,
@@ -270,7 +270,8 @@
     "Actual Drive ZIP access, member identity, full CRC/SHA256, XPT columns and complete raw-domain audit.",
     "Survey weight/strata/PSU definitions and their actual presence; only unweighted predictive inference is supported.",
     "Prior split and Test-use history; reuse existing valid split if available before creating a new one.",
-    "Clinical rationale for composites and age representation; no composite is enabled yet."
+    "Clinical rationale for composites and age representation; no composite is enabled yet.",
+    "BPHIGH4 replacement: actual raw codes, own official page citation and timing review required."
   ],
   "alternatives": {
     "_AGEG5YR": {
@@ -351,5 +352,20 @@
     "codebook_reference": "https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf",
     "citation_page": null,
     "not_predictors": true
-  }
+  },
+  "user_reported_observations": {
+    "xpt_rows": 441456,
+    "HIGHBP3_present": false,
+    "BPHIGH4": "Candidate to check",
+    "raw_code_counts_available_in_colab": true,
+    "independently_verified_in_workspace": false
+  },
+  "split_history": {
+    "status": "UNKNOWN",
+    "existing_split_path": null,
+    "prior_test_used_for_selection": null,
+    "note": "Do not infer a fresh independent holdout from raw XPT availability."
+  },
+  "audit_only": true,
+  "schema_version": 2
 }

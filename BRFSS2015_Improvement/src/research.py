@@ -288,6 +288,8 @@ def candidates():
     return out
 
 def train(args):
+    if json.loads(Path(args.schema).read_text()).get('audit_only'):
+        raise PermissionError('This schema is audit-only. Train/CV is not authorized in this phase.')
     out=Path(args.output)
     if out.exists(): raise ValueError('Use a new output directory; never overwrite prior experiments.')
     out.mkdir(parents=True)
@@ -437,7 +439,24 @@ def audit_codes(args):
         rows.extend(dict(variable=n,raw_value='__SYSTEM_MISSING__' if pd.isna(v) else str(v),count=int(count)) for v,count in counts.items())
     out.mkdir(parents=True)
     pd.DataFrame(rows).to_csv(out/'raw_code_counts.csv',index=False)
+    design={}
+    for role in ['weight','strata','psu']:
+        n=s.get(role)
+        if not n or n not in frame:
+            design[role]={'column':n,'present':False};continue
+        a=frame[n];v=pd.to_numeric(a,errors='coerce')
+        finite=v[np.isfinite(v)]
+        design[role]=dict(column=n,present=True,missing=int(a.isna().sum()),unique=int(a.nunique()),
+                          nonnumeric=int((a.notna() & v.isna()).sum()),nonfinite=int((v.notna() & ~np.isfinite(v)).sum()),
+                          minimum=None if finite.empty else float(finite.min()),maximum=None if finite.empty else float(finite.max()))
+        if role=='weight':design[role]['nonpositive']=int(v.le(0).sum())
+    joint=[s.get(k) for k in ['strata','psu']]
+    if all(n and n in frame for n in joint):
+        design['observed_strata_psu_pairs']=int(frame[joint].drop_duplicates().shape[0])
+        design['psu_ids_in_multiple_strata']=int(frame.groupby(joint[1])[joint[0]].nunique().gt(1).sum())
+    design['interpretation']='Observed diagnostics only; definitions and survey-design inference remain unverified.'
     write_json(out/'raw_code_audit.json',dict(rows=len(frame),columns=len(frame.columns),
+               raw_code_counts_sha256=digest(out/'raw_code_counts.csv'),survey_design_audit=design,
                missing_candidate_columns=sorted(set(names)-set(frame)),container_sha256=digest(args.data),
                input_provenance=frame.attrs.get('input_provenance',{}),
                source_verification_complete=False,learned_preprocessing=False,final_test_locked=True,

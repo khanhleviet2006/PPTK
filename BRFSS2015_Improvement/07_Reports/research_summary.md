@@ -27,3 +27,7 @@ Final Test: unrun. No scores or CI available. It will be reported separately aft
 The user supplied the Drive ZIP path `Diabetes_Statistics_2015/01_Raw_Data/LLCP2015XPT.zip`. It is not mounted in the cloud workspace. Notebook now reads XPT-in-ZIP via CRC-checked temporary spooling, performs metadata preflight and an independent full raw-code count, and keeps Final Test locked. The Train/CV protocol is unchanged.
 
 `schema.reviewed.json` is a **partial, unverified draft**, with 8 active original candidates, an inactive ordinal-age alternative and explicit leakage exclusions. CDC access was blocked by proxy CONNECT 403; no official variable page was reviewed. All proposed codes/units still require authoritative checking. See `00_Audit/codebook_review.md`. No BRFSS baseline, CV result, final score, CI or literature-improvement claim is available. Both default unit tests and the full synthetic integration workflow passed; these establish software behavior only.
+
+## Follow-up: BPHIGH4 and audit-only workflow
+
+User-reported XPT count: 441456, not independently verified in this workspace. HIGHBP3 was reported absent; BPHIGH4 is now a pending candidate, with a header-evidence migration/backup for stale Drive schemas. Raw-code and codebook evidence remain unavailable locally. Current notebook only gathers and compares audit evidence; it does not train/evaluate models. All unresolved official citations, domains, timing, source authenticity and prior Test-use requirements remain pending. No flags were approved and no research scores were generated.

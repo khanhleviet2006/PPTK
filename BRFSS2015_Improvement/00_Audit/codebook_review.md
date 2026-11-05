@@ -41,3 +41,14 @@ Nguồn dẫn ở mức **URL dự kiến** được ghi cho từng biến trong
 4. Ghi lịch sử split/Test trước đây và tái sử dụng split hợp lệ nếu có. Không tự chia lại dựa trên điểm Test cũ. Review diagnosis-time ambiguity; xác định rõ concurrent-status prediction, không tuyên bố incident-risk forecasting.
 5. Chỉ sau khi giải quyết các mục mới ghi active feature `verification_status=VERIFIED`, `leakage_review=safe`, cập nhật citations, bỏ mục đã giải quyết khỏi `unverified_items`, rồi đặt `codebook_reviewed=true`. Không tự duyệt toàn bộ từ việc download thành công.
 6. Giữ Final Test khóa. So sánh baseline và các biến thể bằng Train/CV theo protocol cũ. Comparability với Chang et al. (2022) vẫn chưa xác minh.
+
+## Lần tiếp tục theo báo cáo Colab — 2026-11-05
+
+- User báo `LLCP2015.XPT`: 441456 rows, HIGHBP3 absent, cần kiểm tra BPHIGH4; raw_code_counts.csv đã tạo trong Colab. Đây là **user-reported**, chưa có CSV/preflight/PDF nào được chuyển về workspace để xác minh độc lập.
+- Đã sửa ứng viên active thành **BPHIGH4**, giữ toàn bộ proposal missing 7/9, categories 1/2/3/4 ở trạng thái chưa xác minh. Không ghi trang từ trí nhớ, không dùng citations HIGHBP3 để chứng nhận BPHIGH4. Bảng HIGHBP3 phía trên là lịch sử proposal đã thay thế, không phải mapping hiện hành.
+- Truy cập lại PDF CDC vẫn trả 403; network runtime chưa có custom CDC hosts. Không có trang nào được đọc trong phiên này. Nguồn/trang của từng biến vẫn UNVERIFIED/null; thiếu nguồn là blocker thật, không phải lỗi assert cần bỏ qua bằng đổi cờ.
+- `src/audit_review.py` kiểm tra raw counts, tổng số dòng từng biến, checksum CSV/container/member, CRC flags, proposal mismatches, design metadata và review status. Nó không gán VERIFIED/safe hoặc clear unverified_items. Notebook có sẵn chức năng lấy text và **số trang PDF 1-based thực tế** nếu tải được PDF trên Colab; kết quả là candidate pages để đọc, chưa semantic verification.
+- Survey audit mới báo missing/nonnumeric/nonfinite/min/max/unique của weight/strata/PSU, nonpositive weights, observed strata–PSU pairs và PSU IDs xuất hiện trong nhiều strata. Đây là thống kê quan sát cần diễn giải với codebook, không tự chứng minh thiết kế survey hợp lệ.
+- Lịch sử split/Test vẫn UNKNOWN; notebook chỉ liệt kê file split khả dĩ trong các thư mục dự án, không tự chọn/tạo split và không suy ra Test chưa từng dùng nếu không thấy file.
+- Composite hiện rỗng/disabled. Nếu bản Drive có composite riêng, report ghi định nghĩa, biến thành phần còn thiếu và yêu cầu timing review; không tuyên bố là clinical scale.
+- Trạng thái cuối vẫn `codebook_reviewed=false`, `audit_only=true`; không Train/CV, không Final Test. Cần chạy lại **các ô audit đã cập nhật** trên Colab để lấy evidence bundle thật trước khi hoàn tất đối chiếu.
