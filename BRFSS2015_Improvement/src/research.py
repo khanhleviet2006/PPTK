@@ -17,6 +17,7 @@ from sklearn.metrics import (accuracy_score, balanced_accuracy_score, recall_sco
 from sklearn.model_selection import StratifiedGroupKFold, train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, StandardScaler
+from data_io import read_xpt, inspect_xpt
 
 SEED = 2026
 
@@ -31,14 +32,17 @@ def write_json(path,obj):
 
 def read_data(path):
     p=Path(path)
-    if p.suffix.lower()=='.xpt': return pd.read_sas(p,format='xport',encoding='utf8')
+    if p.suffix.lower() in ['.xpt', '.zip']: return read_xpt(p)
     if p.suffix.lower()=='.parquet': return pd.read_parquet(p)
     return pd.read_csv(p,low_memory=False)
 
 def load(path,schema_path):
-    df=read_data(path); s=json.loads(Path(schema_path).read_text())
+    s=json.loads(Path(schema_path).read_text())
     if not s.get('codebook_reviewed') or not s.get('codebook_source'):
         raise ValueError('Review official 2015 codebook and set codebook_reviewed first.')
+    if s.get('unverified_items'):
+        raise ValueError('Resolve documented unverified_items before training; do not just flip the review flag.')
+    df=read_data(path)
     if s.get('task')!='binary': raise ValueError('Only an explicitly defined binary cohort is accepted.')
     features=s['features']; target=s['target']; names=list(features)
     prohibited={'DIABETE3','DIABAGE2','INSULIN','BLDSUGAR','FEETCHK2','DOCTDIAB','CHKHEMO3','FEETCHK','EYEEXAM','DIABEYE','DIABEDU'}
@@ -80,7 +84,11 @@ def load(path,schema_path):
     X=df.loc[keep,names].copy(); y=labels[keep].astype(int).reset_index(drop=True)
     audit=[]
     for n,spec in features.items():
-        a=X[n]; clean=a.replace(spec['missing_codes'],np.nan).replace({float(k):v for k,v in spec.get('recode',{}).items()})
+        a=X[n]; clean=a.replace(spec['missing_codes'],np.nan)
+        if 'raw_valid_values' in spec:
+            invalid_raw=clean.notna() & ~clean.isin(spec['raw_valid_values'])
+            if invalid_raw.any(): raise ValueError(f'{n}: unexpected raw codes before recode; review codebook.')
+        clean=clean.replace({float(k):v for k,v in spec.get('recode',{}).items()})
         if 'valid_values' in spec: invalid=clean.notna() & ~clean.isin(spec['valid_values'])
         else: invalid=clean.notna() & ~clean.between(*spec['valid_range'])
         if invalid.any(): raise ValueError(f'{n}: {invalid.sum()} unexpected values; review codebook.')
@@ -105,7 +113,7 @@ def load(path,schema_path):
                 if v in first: parent[root(i)]=root(first[v])
                 else: first[v]=i
         group=pd.Series([str(root(i)) for i in range(len(X))])
-    info=dict(detected_survey_columns=[n for n in ['_LLCPWT','_STSTR','_PSU'] if n in df],raw_rows=len(df),cohort_rows=len(X),excluded_target_rows=int((~keep).sum()),
+    info=dict(input_provenance=df.attrs.get('input_provenance',{}),detected_survey_columns=[n for n in ['_LLCPWT','_STSTR','_PSU'] if n in df],raw_rows=len(df),cohort_rows=len(X),excluded_target_rows=int((~keep).sum()),
               features=len(names),label_counts=y.value_counts().to_dict(),
               duplicate_full_records=int(df.duplicated().sum()),duplicate_profiles=int(hashes.duplicated().sum()),
               conflicting_label_profiles=int(pd.DataFrame({'h':hashes,'y':y}).groupby('h').y.nunique().gt(1).sum()),
@@ -137,7 +145,7 @@ class Features(BaseEstimator,TransformerMixin):
             if bmi is not None:
                 # Physical units must be defined by schema scale; e.g. _BMI5 scale=0.01.
                 b=bmi*self.schema['features'][roles['bmi']].get('scale',1)
-                X['eng_bmi_group']=pd.cut(b,[-np.inf,18.5,25,30,np.inf],labels=False).astype(float)
+                X['eng_bmi_group']=pd.cut(b,[-np.inf,18.5,25,30,np.inf],right=False,labels=False).astype(float)
             for role in ['physical_days','mental_days']:
                 c=col(role)
                 if c is not None: X['eng_log_'+role]=np.log1p(c)
@@ -289,7 +297,7 @@ def train(args):
     info.update(train_rows=len(tr),test_rows=len(te),train_labels=y.iloc[tr].value_counts().to_dict(),test_labels=y.iloc[te].value_counts().to_dict())
     write_json(out/'00_Audit/cohort.json',info)
     np.savez(out/'00_Audit/split.npz',train=tr,test=te)
-    provenance=dict(source_sha256=digest(__file__),seed=SEED,data_sha256=digest(args.data),schema_sha256=digest(args.schema),args=vars(args),python=platform.python_version())
+    provenance=dict(source_sha256=digest(__file__),io_source_sha256=digest(Path(__file__).with_name('data_io.py')),seed=SEED,data_sha256=digest(args.data),schema_sha256=digest(args.schema),args=vars(args),python=platform.python_version())
     import importlib.metadata as md
     provenance['versions']={n:md.version(n) for n in ['numpy','pandas','scipy','scikit-learn','joblib']}
     for n in ['catboost','lightgbm','xgboost','optuna']:
@@ -373,8 +381,11 @@ def report(out,table,smoke=False):
     (out/'07_Reports/research_summary.md').write_text('\n'.join(lines),encoding='utf8')
 
 def final(args):
+    if not getattr(args,'unlock_final',False):
+        raise PermissionError('Final Test is locked. Explicit --unlock-final is required after independent protocol review.')
     out=Path(args.output); prov=json.loads((out/'provenance.json').read_text())
     if digest(__file__)!=prov['source_sha256']: raise ValueError('Research code changed after freezing.')
+    if digest(Path(__file__).with_name('data_io.py'))!=prov['io_source_sha256']: raise ValueError('Input reader changed after freezing.')
     if digest(args.data)!=prov['data_sha256']: raise ValueError('Data changed.')
     for n,h in json.loads((out/'frozen.json').read_text()).items():
         if digest(out/n)!=h: raise ValueError(f'Frozen artifact changed: {n}')
@@ -400,9 +411,43 @@ def final(args):
         for r in rows: f.write(f"|{r['model']}|{r['accuracy']:.4f}|{r['sensitivity']:.4f}|{r['balanced_accuracy']:.4f}|\n")
         f.write('\n'+json.dumps(ci,indent=2)+'\nA point estimate above the literature benchmark does not establish a fair improvement over Chang et al. (2022).\n')
 
+def inspect(args):
+    s=json.loads(Path(args.schema).read_text())
+    _,info=inspect_xpt(args.data)
+    required=set(s['features'])|{s['target']}|{s[k] for k in ['weight','strata','psu','group_column','split_column'] if s.get(k)}
+    info.update(container_sha256=digest(args.data),missing_required_columns=sorted(required-set(info['columns'])),
+                codebook_reviewed=s.get('codebook_reviewed',False),unverified_items=s.get('unverified_items',[]),
+                final_test_locked=True,seed=SEED)
+    out=Path(args.output)
+    # Never overwrite a previous preflight report.
+    with out.open('x',encoding='utf8') as f: json.dump(info,f,indent=2)
+    print(json.dumps(info,indent=2))
+
+def audit_codes(args):
+    """Full raw code frequencies for source review; no fit/split/selection/scoring."""
+    out=Path(args.output)
+    if out.exists(): raise FileExistsError('Raw audit output already exists.')
+    s=json.loads(Path(args.schema).read_text())
+    frame=read_data(args.data)
+    names=list(dict.fromkeys(list(s['features'])+list(s.get('alternatives',{}))+[s['target']]))
+    rows=[]
+    for n in names:
+        if n not in frame: continue
+        counts=frame[n].value_counts(dropna=False)
+        rows.extend(dict(variable=n,raw_value='__SYSTEM_MISSING__' if pd.isna(v) else str(v),count=int(count)) for v,count in counts.items())
+    out.mkdir(parents=True)
+    pd.DataFrame(rows).to_csv(out/'raw_code_counts.csv',index=False)
+    write_json(out/'raw_code_audit.json',dict(rows=len(frame),columns=len(frame.columns),
+               missing_candidate_columns=sorted(set(names)-set(frame)),container_sha256=digest(args.data),
+               input_provenance=frame.attrs.get('input_provenance',{}),
+               source_verification_complete=False,learned_preprocessing=False,final_test_locked=True,
+               note='Observed frequencies are not proof of official code meanings. No split or model was fitted.'))
+
 def main():
     p=argparse.ArgumentParser(); sub=p.add_subparsers(dest='command',required=True)
     t=sub.add_parser('train'); t.add_argument('--data',required=True); t.add_argument('--schema',required=True); t.add_argument('--output',required=True); t.add_argument('--folds',type=int,default=5); t.add_argument('--hours',type=float,default=60); t.add_argument('--trials',type=int,default=12); t.add_argument('--smoke',action='store_true')
-    f=sub.add_parser('final'); f.add_argument('--data',required=True); f.add_argument('--output',required=True)
-    a=p.parse_args(); train(a) if a.command=='train' else final(a)
+    f=sub.add_parser('final'); f.add_argument('--data',required=True); f.add_argument('--output',required=True); f.add_argument('--unlock-final',action='store_true')
+    i=sub.add_parser('inspect'); i.add_argument('--data',required=True); i.add_argument('--schema',required=True); i.add_argument('--output',required=True)
+    a=sub.add_parser('audit-codes'); a.add_argument('--data',required=True); a.add_argument('--schema',required=True); a.add_argument('--output',required=True)
+    a=p.parse_args(); {'train':train,'final':final,'inspect':inspect,'audit-codes':audit_codes}[a.command](a)
 if __name__=='__main__': main()

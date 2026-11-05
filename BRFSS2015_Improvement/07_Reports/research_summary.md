@@ -21,3 +21,9 @@ Conclusion: Cannot determine improvement over internal baseline or whether Accur
 |Model comparison (unrun)|Reviewed originals|LR/RF/ET/XGB/LGBM/CAT|N/A|N/A|N/A|
 
 Final Test: unrun. No scores or CI available. It will be reported separately after configuration freezing.
+
+## ZIP/codebook preparation update
+
+The user supplied the Drive ZIP path `Diabetes_Statistics_2015/01_Raw_Data/LLCP2015XPT.zip`. It is not mounted in the cloud workspace. Notebook now reads XPT-in-ZIP via CRC-checked temporary spooling, performs metadata preflight and an independent full raw-code count, and keeps Final Test locked. The Train/CV protocol is unchanged.
+
+`schema.reviewed.json` is a **partial, unverified draft**, with 8 active original candidates, an inactive ordinal-age alternative and explicit leakage exclusions. CDC access was blocked by proxy CONNECT 403; no official variable page was reviewed. All proposed codes/units still require authoritative checking. See `00_Audit/codebook_review.md`. No BRFSS baseline, CV result, final score, CI or literature-improvement claim is available. Both default unit tests and the full synthetic integration workflow passed; these establish software behavior only.

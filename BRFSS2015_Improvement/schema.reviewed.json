@@ -1,0 +1,355 @@
+{
+  "task": "binary",
+  "codebook_reviewed": false,
+  "codebook_source": "https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf",
+  "target": "DIABETE3",
+  "label_map": {
+    "1": 1,
+    "2": null,
+    "3": 0,
+    "4": null,
+    "7": null,
+    "9": null
+  },
+  "cohort_definition": "PROPOSED ONLY: DIABETE3 1 vs 3; exclude gestational-only (2), prediabetes (4), unknown/refused/missing. Requires official coding verification and prior split/Test-use history.",
+  "population_inference": false,
+  "weight": "_LLCPWT",
+  "strata": "_STSTR",
+  "psu": "_PSU",
+  "group_column": null,
+  "split_column": null,
+  "features": {
+    "_BMI5": {
+      "type": "continuous",
+      "missing_codes": [],
+      "recode": {},
+      "scale": 0.01,
+      "leakage_review": "pending",
+      "rationale": "Adiposity correlate; calculated BMI, timing/units/implausible-value rules must be checked.",
+      "codebook_reference": "https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf",
+      "verification_status": "UNVERIFIED_PROPOSAL",
+      "citation_page": null,
+      "raw_system_missing": "SAS missing/blank proposed to remain NaN; verify official definition",
+      "valid_range": [
+        1,
+        9999
+      ],
+      "scale_semantics": "Current pipeline applies scale ONLY to B3 BMI grouping. Other predictors/interactions retain raw scaled units before fold scaling."
+    },
+    "_AGE80": {
+      "type": "continuous",
+      "missing_codes": [],
+      "recode": {},
+      "scale": 1,
+      "leakage_review": "pending",
+      "rationale": "Age correlate, proposed cap at 80; not an ordinal category code.",
+      "codebook_reference": "https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf",
+      "verification_status": "UNVERIFIED_PROPOSAL",
+      "citation_page": null,
+      "raw_system_missing": "SAS missing/blank proposed to remain NaN; verify official definition",
+      "valid_range": [
+        18,
+        80
+      ]
+    },
+    "EXERANY2": {
+      "type": "categorical",
+      "missing_codes": [
+        7,
+        9
+      ],
+      "recode": {
+        "2": 0
+      },
+      "scale": 1,
+      "leakage_review": "pending",
+      "rationale": "Any leisure-time physical activity; proposed 1/2 to 1/0 recode, excludes occupational activity.",
+      "codebook_reference": "https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf",
+      "verification_status": "UNVERIFIED_PROPOSAL",
+      "citation_page": null,
+      "raw_system_missing": "SAS missing/blank proposed to remain NaN; verify official definition",
+      "valid_values": [
+        0,
+        1
+      ],
+      "raw_valid_values": [
+        1,
+        2
+      ]
+    },
+    "PHYSHLTH": {
+      "type": "continuous",
+      "missing_codes": [
+        77,
+        99
+      ],
+      "recode": {
+        "88": 0
+      },
+      "scale": 1,
+      "leakage_review": "pending",
+      "rationale": "Physically unhealthy days; proposed 88 means zero, never treat 88 as 88 days.",
+      "codebook_reference": "https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf",
+      "verification_status": "UNVERIFIED_PROPOSAL",
+      "citation_page": null,
+      "raw_system_missing": "SAS missing/blank proposed to remain NaN; verify official definition",
+      "valid_range": [
+        0,
+        30
+      ],
+      "raw_valid_values": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        88
+      ]
+    },
+    "MENTHLTH": {
+      "type": "continuous",
+      "missing_codes": [
+        77,
+        99
+      ],
+      "recode": {
+        "88": 0
+      },
+      "scale": 1,
+      "leakage_review": "pending",
+      "rationale": "Mentally unhealthy days; same proposed zero-day recode needs independent verification.",
+      "codebook_reference": "https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf",
+      "verification_status": "UNVERIFIED_PROPOSAL",
+      "citation_page": null,
+      "raw_system_missing": "SAS missing/blank proposed to remain NaN; verify official definition",
+      "valid_range": [
+        0,
+        30
+      ],
+      "raw_valid_values": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        88
+      ]
+    },
+    "HIGHBP3": {
+      "type": "categorical",
+      "missing_codes": [
+        7,
+        9
+      ],
+      "recode": {},
+      "scale": 1,
+      "leakage_review": "pending",
+      "rationale": "Hypertension history; retain proposed pregnancy-only and borderline categories separately; diagnosis timing unresolved.",
+      "codebook_reference": "https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf",
+      "verification_status": "UNVERIFIED_PROPOSAL",
+      "citation_page": null,
+      "raw_system_missing": "SAS missing/blank proposed to remain NaN; verify official definition",
+      "valid_values": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "TOLDHI2": {
+      "type": "categorical",
+      "missing_codes": [
+        7,
+        9
+      ],
+      "recode": {},
+      "scale": 1,
+      "leakage_review": "pending",
+      "rationale": "High-cholesterol history, screening/skip-pattern and diagnosis timing require review.",
+      "codebook_reference": "https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf",
+      "verification_status": "UNVERIFIED_PROPOSAL",
+      "citation_page": null,
+      "raw_system_missing": "SAS missing/blank proposed to remain NaN; verify official definition",
+      "valid_values": [
+        1,
+        2
+      ]
+    },
+    "SMOKE100": {
+      "type": "categorical",
+      "missing_codes": [
+        7,
+        9
+      ],
+      "recode": {},
+      "scale": 1,
+      "leakage_review": "pending",
+      "rationale": "Lifetime smoking exposure; does not indicate current smoking.",
+      "codebook_reference": "https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf",
+      "verification_status": "UNVERIFIED_PROPOSAL",
+      "citation_page": null,
+      "raw_system_missing": "SAS missing/blank proposed to remain NaN; verify official definition",
+      "valid_values": [
+        1,
+        2
+      ]
+    }
+  },
+  "roles": {
+    "bmi": "_BMI5",
+    "age": "_AGE80",
+    "activity": "EXERANY2",
+    "physical_days": "PHYSHLTH",
+    "mental_days": "MENTHLTH"
+  },
+  "composites": {},
+  "review_status": "PARTIAL_DRAFT_UNVERIFIED_NOT_FOR_TRAINING",
+  "data_path": "/content/drive/MyDrive/Diabetes_Statistics_2015/01_Raw_Data/LLCP2015XPT.zip",
+  "codebook_access": {
+    "status": "BLOCKED_BY_PROXY_CONNECT_403",
+    "retrieved": false,
+    "sha256": null,
+    "reviewed_pages": [],
+    "official_landing_page": "https://www.cdc.gov/brfss/annual_data/annual_2015.html",
+    "note": "Intended official URLs, not fetched or validated in this session."
+  },
+  "unverified_items": [
+    "Official codebook retrieval, document version/SHA256 and page/table citations for every candidate and target.",
+    "All proposed missing codes, valid raw/post-recode domains, units, scale and top-coding against official 2015 documentation.",
+    "Leakage/timing review: these are cross-sectional diagnosis correlates, not validated predictors of future diabetes.",
+    "Actual Drive ZIP access, member identity, full CRC/SHA256, XPT columns and complete raw-domain audit.",
+    "Survey weight/strata/PSU definitions and their actual presence; only unweighted predictive inference is supported.",
+    "Prior split and Test-use history; reuse existing valid split if available before creating a new one.",
+    "Clinical rationale for composites and age representation; no composite is enabled yet."
+  ],
+  "alternatives": {
+    "_AGEG5YR": {
+      "type": "ordinal",
+      "missing_codes": [
+        14
+      ],
+      "valid_values": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "order": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "recode": {},
+      "scale": 1,
+      "codebook_reference": "https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf",
+      "citation_page": null,
+      "verification_status": "UNVERIFIED_PROPOSAL",
+      "decision": "Not active with _AGE80; alternative schema needs the same frozen split; group codes cannot serve as years in interactions."
+    }
+  },
+  "excluded_predictors": {
+    "DIABETE3": {
+      "reason": "Target diagnosis",
+      "verification_status": "Definition not source-verified; conservative exclusion",
+      "codebook_reference": "https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf",
+      "citation_page": null
+    },
+    "INSULIN": {
+      "reason": "Diabetes treatment may directly reveal diagnosis",
+      "verification_status": "Definition not source-verified; conservative exclusion",
+      "codebook_reference": "https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf",
+      "citation_page": null
+    },
+    "DIABAGE2": {
+      "reason": "Age at diabetes diagnosis directly conditions on target",
+      "verification_status": "Definition not source-verified; conservative exclusion",
+      "codebook_reference": "https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf",
+      "citation_page": null
+    }
+  },
+  "target_review": {
+    "verification_status": "UNVERIFIED_PROPOSAL",
+    "missing_codes": [
+      7,
+      9
+    ],
+    "codebook_reference": "https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf",
+    "citation_page": null,
+    "label_map_is_proposed": true
+  },
+  "design_review": {
+    "verification_status": "UNVERIFIED_PROPOSAL",
+    "codebook_reference": "https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf",
+    "citation_page": null,
+    "not_predictors": true
+  }
+}

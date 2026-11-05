@@ -29,9 +29,15 @@ def main():
         for b in ['B0','B1','B2','B3']:
             c=dict(preprocessing=b,engineering='D3',selection='all',model='LR')
             pipe=r.pipeline(s,c,X).fit(X.iloc[tr],y.iloc[tr]); assert pipe.predict_proba(X.iloc[te]).shape==(len(te),2)
-        args=Namespace(data=str(d/'data.csv'),schema=str(d/'schema.json'),output=str(d/'run'),folds=3,hours=.1,trials=0,smoke=True)
+        args=Namespace(data=str(d/'data.csv'),schema=str(d/'schema.json'),output=str(d/'run'),folds=3,hours=.1,trials=0,smoke=True,unlock_final=True)
         r.train(args)
         assert (d/'run/model.joblib').exists()
+        args.unlock_final=False
+        try: r.final(args)
+        except PermissionError: pass
+        else: raise AssertionError('Final Test must remain locked by default')
+        assert not (d/'run/06_Final_Evaluation/FINAL_EVALUATION_STARTED').exists()
+        args.unlock_final=True
         try: r.final(args)
         except ValueError as e: assert 'Smoke' in str(e)
         else: raise AssertionError('Synthetic final research results must be forbidden')

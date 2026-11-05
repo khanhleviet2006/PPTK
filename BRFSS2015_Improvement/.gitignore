@@ -6,3 +6,5 @@ catboost_info/
 *.XPT
 *.xpt
 *.parquet
+*.zip
+!tests/fixtures/synthetic.xpt
