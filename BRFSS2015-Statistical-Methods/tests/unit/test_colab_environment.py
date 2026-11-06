@@ -21,3 +21,16 @@ def test_requirements_path_independent_of_working_directory(tmp_path, monkeypatc
     monkeypatch.chdir(tmp_path)
     assert (ROOT / "requirements.txt").is_file()
     assert ROOT == Path(__file__).resolve().parents[2]
+
+
+def test_dependency_closure_checks_transitive_versions(monkeypatch):
+    from types import SimpleNamespace
+    from scripts.verify_environment import dependency_conflicts
+    import importlib.metadata
+
+    dists = {"root": SimpleNamespace(requires=["child>=2"]), "child": SimpleNamespace(requires=[])}
+    monkeypatch.setattr(importlib.metadata, "distribution", lambda name: dists[name])
+    monkeypatch.setattr(importlib.metadata, "version", lambda name: "1.0")
+    assert "installed 1.0" in dependency_conflicts(["root"])[0]
+    monkeypatch.setattr(importlib.metadata, "version", lambda name: "2.0")
+    assert dependency_conflicts(["root"]) == []

@@ -25,12 +25,14 @@ def package(destination, checkpoint=None):
                 continue
             rel = p.relative_to(root)
             if any(
-                x in [".git", ".venv", "__pycache__", ".pytest_cache", ".ruff_cache", "data"]
+                x in [".git", ".venv", "__pycache__", ".pytest_cache", ".ruff_cache"]
                 or x.endswith(".egg-info")
                 for x in rel.parts
             ):
                 continue
             if rel.parts[0] == "runs" and (len(rel.parts) < 2 or rel.parts[1] not in RUNS):
+                continue
+            if rel.parts[0] == "data":
                 continue
             if p.suffix.lower() in [".xpt", ".zip"] or p.name == ".env":
                 continue

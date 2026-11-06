@@ -1,0 +1,36 @@
+{
+  "git_head_before_repair": "7fcd764b33a4f6a15216d253cd22553c394db637",
+  "github_project_commits_inspected": [
+    "911743a6e63fdac1e25c173937210736d3f79e47",
+    "7fcd764b33a4f6a15216d253cd22553c394db637"
+  ],
+  "github_path_history_all_four_data_modules_and_split": "NO_COMMITS",
+  "recovery_archive": "brfss_before_gap_extension.tar.gz",
+  "files": [
+    {
+      "path": "src/data/__init__.py",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "recovery": "Original bytes recovered locally from pre-extension archive; source semantics retained with ZIP/formatting fixes"
+    },
+    {
+      "path": "src/data/ingest.py",
+      "original_sha256": "6cb6a1fb4f91d1a7884310a2aa968b2453ff1a5b9f542d48291a193447378405",
+      "recovery": "Original bytes recovered locally from pre-extension archive; source semantics retained with ZIP/formatting fixes"
+    },
+    {
+      "path": "src/data/outcomes.py",
+      "original_sha256": "fa2dc32b58c00d9fa1acd832fc2cfa41b32c3de17ff96403738e57bbe55022c0",
+      "recovery": "Original bytes recovered locally from pre-extension archive; source semantics retained with ZIP/formatting fixes"
+    },
+    {
+      "path": "src/data/synthetic.py",
+      "original_sha256": "80cca60a0bb67b697ebba5a1dd3eadddd69a73932a9e75d9861c1883904bc290",
+      "recovery": "Original bytes recovered locally from pre-extension archive; source semantics retained with ZIP/formatting fixes"
+    },
+    {
+      "path": "runs/real_final_quick/split.json",
+      "original_sha256": "a04d32f25f5a1993523299f96232be70a604d4b05a71f4b5dd319be9da5e6104",
+      "recovery": "Recovered locally; not published alone as a complete legacy state"
+    }
+  ]
+}

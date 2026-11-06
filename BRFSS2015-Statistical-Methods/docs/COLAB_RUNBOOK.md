@@ -16,3 +16,6 @@ Optional R cross-check: in Colab install r-base and r-cran-survey via apt, then 
 ## NumPy compatibility update
 
 Setup supports NumPy >=2.0.2,<2.3, including Colab 2.0.2 and the original 2.2.6 environment. Install requirements with the kernel Python. Restart the session if binary packages were already imported and installation changed them. The verifier checks loaded and installed versions and resolves requirements relative to its own repository, independently of the current directory. Historical lock files and empirical results remain unchanged. Actual Colab execution remains COLAB_RUNTIME_NOT_VERIFIED.
+
+
+For the current master, follow [COLAB_END_TO_END.md](COLAB_END_TO_END.md). It supersedes the legacy-only setup above. ZIP input and NEW_PROTOCOL are supported; historical resume still fails closed without its complete audited bundle.

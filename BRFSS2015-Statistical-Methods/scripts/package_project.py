@@ -17,11 +17,12 @@ def package(destination):
                 continue
             relative = p.relative_to(root)
             if any(
-                part
-                in ["__pycache__", ".pytest_cache", ".ruff_cache", ".git", ".venv", "runs", "data"]
+                part in ["__pycache__", ".pytest_cache", ".ruff_cache", ".git", ".venv", "runs"]
                 or part.endswith(".egg-info")
                 for part in relative.parts
             ):
+                continue
+            if relative.parts[0] == "data":
                 continue
             if p.suffix.lower() in [".xpt", ".zip", ".joblib"] or p.name == ".env":
                 continue

@@ -6,9 +6,9 @@ import logging
 import importlib.metadata
 import numpy as np
 import pandas as pd
-import pyreadstat
 import joblib
 from sklearn.model_selection import train_test_split, StratifiedKFold
+from src.data.ingest import load_xpt
 from src.data.synthetic import generate
 from src.data.outcomes import eligible
 from src.features.engineering import specifications, transform_raw
@@ -45,7 +45,13 @@ def run(
     out.mkdir(parents=True, exist_ok=True)
     seed = 20261106
     specs = specifications()
-    protected = snapshot()
+    if synthetic:
+        protected = {str(p): digest(p) for p in Path("src").rglob("*.py")}
+    else:
+        from scripts.colab_runtime import require_legacy
+
+        require_legacy()
+        protected = snapshot()
     if synthetic:
         raw = generate(640, seed)
         source = frame_hash(raw)
@@ -59,10 +65,10 @@ def run(
         legacy = read_json("runs/real_final_quick/split.json")
         old_test = set(legacy["test_ids"])
         old_train = set(legacy["train_ids"])
-        raw, _ = pyreadstat.read_xport(
-            data, usecols=list(specs) + ["_STATE", "SEQNO", "DIABETE3", "_LLCPWT", "_STSTR", "_PSU"]
+        raw, meta = load_xpt(
+            data, columns=list(specs) + ["_STATE", "SEQNO", "DIABETE3", "_LLCPWT", "_STSTR", "_PSU"]
         )
-        source = digest(data)
+        source = meta["source_sha256"]
     ids = raw["_STATE"].astype(int).astype(str) + ":" + raw["SEQNO"].astype(str)
     mask, y = eligible(raw, mode)
     available = mask & ~ids.isin(old_test)
@@ -186,7 +192,8 @@ def run(
     joblib.dump(final, b)
     atomic_bytes(out / "development_model.joblib", b.getvalue())
     explain(X, y, specs, raw, out, seed, good)
-    assert protected == snapshot(), "Legacy source/config/models/test artifacts changed"
+    current = {str(p): digest(p) for p in Path("src").rglob("*.py")} if synthetic else snapshot()
+    assert protected == current, "Legacy source/config/models/test artifacts changed"
     write_json(
         out / "integrity.json",
         {

@@ -14,3 +14,6 @@ Repository layout follows the requested src/data, audit, features, statistics, m
 
 
 Post-audit extension: use [POST_AUDIT_COLAB_RUNBOOK.md](docs/POST_AUDIT_COLAB_RUNBOOK.md) and [FINAL_RESEARCH_REPORT.md](reports/FINAL_RESEARCH_REPORT.md). The master now performs development-only research; historical2015 real final-evaluation notebooks are blocked. Full research ZIP includes protected legacy state. Scientific status remains PARTIAL_COMPLETION.
+
+
+Colab repair: see [end-to-end runbook](docs/COLAB_END_TO_END.md). The master now defaults to NEW_PROTOCOL, which works from a source-only checkout; LEGACY_RESUME still requires the original complete frozen bundle. See [verification](reports/COLAB_REPAIR_AUDIT.md).

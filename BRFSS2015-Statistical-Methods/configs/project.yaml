@@ -3,6 +3,7 @@ project_root: /content/drive/MyDrive/BRFSS2015_Statistical_Methods_AZ
 data_path: null
 codebook_path: null
 candidate_directories:
+  - /content/drive/MyDrive/Diabetes_Statistics_2015/01_Raw_Data
   - /content/drive/MyDrive/BRFSS2015_Statistical_Methods_AZ/data/raw
   - /content/drive/MyDrive/BRFSS2015
   - /content/drive/MyDrive/data
