@@ -11,3 +11,8 @@ If a Colab mount is absent, mount it before data discovery. A missing file error
 A disconnect during final evaluation leaves an ACCESSED test ledger; this is deliberately not automatically rerun. Audit any resulting predictions and the access history before deciding whether an interrupted evaluation can be completed; disclose the access. Do not delete the ledger to pretend the set is untouched. Writes use same-directory temporary files and os.replace; Drive's remote synchronization guarantees are weaker than local POSIX guarantees, so keep backups and check manifests after reconnection.
 
 Optional R cross-check: in Colab install r-base and r-cran-survey via apt, then run BRFSS_RSCRIPT=/usr/bin/Rscript python -m pytest tests/scientific/test_r_reference.py. The Python variance engine is independently tested against this reference; an actual Colab run remains unverified until executed there. Version and test records in reports/VERIFICATION.md document the environment actually tested.
+
+
+## NumPy compatibility update
+
+Setup supports NumPy >=2.0.2,<2.3, including Colab 2.0.2 and the original 2.2.6 environment. Install requirements with the kernel Python. Restart the session if binary packages were already imported and installation changed them. The verifier checks loaded and installed versions and resolves requirements relative to its own repository, independently of the current directory. Historical lock files and empirical results remain unchanged. Actual Colab execution remains COLAB_RUNTIME_NOT_VERIFIED.

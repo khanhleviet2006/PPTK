@@ -1,0 +1,3 @@
+# Colab NumPy compatibility fix
+
+Requirements now accept NumPy >=2.0.2,<2.3. Linux Python 3.12.14 verification: full pytest suite with NumPy 2.0.2: 54 passed, 2 skipped; NumPy 2.2.6: 54 passed, 2 skipped. Skips require R reference configuration. verify_environment() including pip check passed with NumPy 2.0.2 after reinstalling editable project metadata. pandas 2.2.3, scipy 1.15.3, sklearn 1.6.1 and statsmodels 0.14.4 imported successfully. Tests include synthetic pipeline integration and notebook schema validation. Actual Colab runtime: COLAB_RUNTIME_NOT_VERIFIED. No real-data experiments or final-test evaluation were rerun. Historical result locks remain unchanged.
