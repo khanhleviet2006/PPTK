@@ -24,6 +24,8 @@ def validate(execute=False, output="reports/notebook_execution", repeat=2):
                     BRFSS_OUT=temp,
                     MPLCONFIGDIR=str(Path(temp) / "mpl"),
                     JUPYTER_PLATFORM_DIRS="1",
+                    BRFSS_PROTOCOL="NEW_PROTOCOL",
+                    BRFSS_FINAL_EVALUATION="1" if path.name == "10_Final_Evaluation.ipynb" else "0",
                 )
                 # Each repetition uses a new kernel with the same output directory.
                 # Checkpoints must make rerunning idempotent, including final test access.
@@ -32,7 +34,7 @@ def validate(execute=False, output="reports/notebook_execution", repeat=2):
                     client = NotebookClient(
                         nb,
                         timeout=900,
-                        kernel_name="python3",
+                        kernel_name=os.environ.get("BRFSS_NOTEBOOK_KERNEL", "python3"),
                         resources={"metadata": {"path": str(root)}},
                     )
                     client.execute(env=env)

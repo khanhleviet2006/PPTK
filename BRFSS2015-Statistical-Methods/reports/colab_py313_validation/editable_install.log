@@ -1,0 +1,28 @@
+WARNING: The directory '/home/agent/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Obtaining file:///workspace/BRFSS2015-Statistical-Methods
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: brfss2015-statistical-methods
+  Building editable for brfss2015-statistical-methods (pyproject.toml): started
+  Building editable for brfss2015-statistical-methods (pyproject.toml): finished with status 'done'
+  /tmp/pip-build-env-3k8s77ea/overlay/lib/python3.13/site-packages/setuptools/command/editable_wheel.py:354: BuildBackendWarning: Editable installation.
+  !!
+  
+          ********************************************************************************
+          Please be careful with folders in your working directory with the same
+          name as your package as they may take precedence during imports.
+          ********************************************************************************
+  
+  !!
+    with strategy, WheelFile(wheel_path, "w") as wheel_obj:
+  Created wheel for brfss2015-statistical-methods: filename=brfss2015_statistical_methods-0.1.0-0.editable-py3-none-any.whl size=3215 sha256=39f660c0d680dd904cb0557f461a01873a0a84487041da862bd2aafd0e5d71da
+  Stored in directory: /tmp/pip-ephem-wheel-cache-06nqilef/wheels/f9/88/47/a41c3bef1340b6af3f7a5c1067f84d532bfc268c1c7939cd97
+Successfully built brfss2015-statistical-methods
+Installing collected packages: brfss2015-statistical-methods
+Successfully installed brfss2015-statistical-methods-0.1.0

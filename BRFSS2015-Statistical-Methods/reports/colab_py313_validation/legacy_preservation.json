@@ -1,0 +1,16 @@
+{
+  "comparison": "pre-extension recovery archive vs existing protected artifacts",
+  "unchanged": {
+    "development.json": true,
+    "frozen.json": true,
+    "baseline_frozen.json": true,
+    "final_metrics.json": true,
+    "test_access.json": true,
+    "split.json": true,
+    "cv_splits.json": true,
+    "training_subset.json": true,
+    "frozen_model.joblib": true,
+    "baseline_model.joblib": true,
+    "run_manifest.json": true
+  }
+}

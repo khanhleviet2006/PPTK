@@ -57,10 +57,15 @@ def execute(
     profile="quick",
     mode="binary",
     seed=20261107,
-    through="report",
+    through="develop",
+    allow_final=False,
 ):
     if protocol not in {"NEW_PROTOCOL", "LEGACY_RESUME"}:
         raise ValueError("Protocol must be NEW_PROTOCOL or LEGACY_RESUME")
+    if protocol == "NEW_PROTOCOL" and through in {"evaluate", "report"} and not allow_final:
+        raise ScientificValidationError(
+            "Final evaluation requires explicit allow_final=True after protocol and model freeze; development never opens Test automatically"
+        )
     os.chdir(ROOT)
     out = Path(out or ROOT / "runs/new_protocol").resolve()
     if protocol == "LEGACY_RESUME":

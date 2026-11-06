@@ -1,0 +1,32 @@
+{
+  "STATIC_PASS": true,
+  "UNIT_TEST_PASS": {
+    "python3.13": "66 passed, 2 skipped",
+    "python3.12": "66 passed, 2 skipped"
+  },
+  "INTEGRATION_PASS": true,
+  "LOCAL_NOTEBOOK_EXECUTION_PASS": {
+    "status": true,
+    "python": "3.13.17",
+    "notebooks": 13,
+    "fresh_kernels_per_notebook": 2,
+    "master_default_test_access": false,
+    "final_notebook_test_fixture": "explicit opt-in, ledger count asserted 1"
+  },
+  "COLAB_RUNTIME_VERIFIED": false,
+  "REAL_DATA_VERIFIED": {
+    "status": true,
+    "scope": "through development report, no final evaluation"
+  },
+  "editable_install": "PASS",
+  "initial_failures": [
+    "Original requires-python excludes 3.13",
+    "SHAP 0.47.2 wheel unavailable on 3.13",
+    "Optional xgb/shap missing before complete installation; final suite passed"
+  ],
+  "limits": [
+    "No hosted Colab session or Drive mount tested",
+    "R reference tests skipped",
+    "Real final evaluation not executed"
+  ]
+}

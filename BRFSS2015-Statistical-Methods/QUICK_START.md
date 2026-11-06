@@ -1,29 +1,23 @@
 # Quick start
 
+Google Colab Python 3.13: follow [COLAB_QUICK_START.md](docs/COLAB_QUICK_START.md). Update the entire project and open the current master; every active notebook is standalone. Final Test is disabled during development by default.
+
+For local Linux validation:
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
-pip install -e . --no-deps
-pip install -r requirements-boosters.txt  # optional
+python -m pip install -r requirements.txt -r requirements-boosters.txt -r requirements-research-extensions.txt
+python -m pip install -e . --no-deps
 python scripts/verify_environment.py
 python -m pytest
-python scripts/smoke_test.py
-python scripts/validate_notebooks.py --execute
+python -m scripts.validate_notebooks --execute --repeat 2
 ```
 
-Original data: download the exact CDC LLCP2015XPT.zip and codebook15_llcp.pdf from https://www.cdc.gov/brfss/annual_data/annual_2015.html. Extract and normalize `LLCP2015.XPT ` to `LLCP2015.XPT`. The source audit expects 441456 records and 330 columns.
+Original data: use the exact CDC ZIP/XPT and codebook; see [the runbook](docs/COLAB_QUICK_START.md). Never silently substitute a processed dataset. CLI development example (requires a new output directory):
 
 ```bash
-python scripts/run_pipeline.py --data /your/path/LLCP2015.XPT --codebook /your/path/codebook15_llcp.pdf --out runs/real_quick --profile quick
-python scripts/verify_outputs.py runs/real_quick
-# Primary full experiment, new output directory:
-python scripts/run_pipeline.py --data /your/path/LLCP2015.XPT --codebook /your/path/codebook15_llcp.pdf --out runs/real_standard --profile standard
-# Secondary three-category self-report, new directory:
-python scripts/run_pipeline.py --data /your/path/LLCP2015.XPT --codebook /your/path/codebook15_llcp.pdf --out runs/real_three --mode core_three --profile quick
+python -m scripts.run_pipeline --data /your/path/LLCP2015XPT.zip --codebook /your/path/codebook15_llcp.pdf --out runs/cli_new_study --profile quick --through develop
 ```
 
-For Colab use notebooks/00_Run_All_Colab.ipynb and set persistent Drive paths. For synthetic validation add --synthetic; synthetic data never replace original data silently. Rerunning identical commands resumes checkpoints. Changed code/configuration/data requires a distinct run; preserve and disclose prior test access. Standard/extended modes can take hours on CPU; consult EXPERIMENT_PLAN before launching.
-
-
-Post-audit extension: use [POST_AUDIT_COLAB_RUNBOOK.md](docs/POST_AUDIT_COLAB_RUNBOOK.md) and [FINAL_RESEARCH_REPORT.md](reports/FINAL_RESEARCH_REPORT.md). The master now performs development-only research; historical2015 real final-evaluation notebooks are blocked. Full research ZIP includes protected legacy state. Scientific status remains PARTIAL_COMPLETION.
+The low-level CLI requires `--final-evaluation` for `--through evaluate` or `--through report`. Prefer the master and NEW_PROTOCOL wrapper for an explicit protocol manifest and development report without test access. Synthetic fixtures are software validation, not empirical findings. Changed signatures require a new output directory. Keep all old test ledgers.

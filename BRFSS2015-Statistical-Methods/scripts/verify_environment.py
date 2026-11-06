@@ -41,9 +41,9 @@ def dependency_conflicts(names):
 
 
 def verify():
-    if not (3, 10) <= sys.version_info[:2] < (3, 13):
+    if not (3, 10) <= sys.version_info[:2] < (3, 14):
         raise RuntimeError(
-            "Supported Python: 3.10–3.12. Revalidate constraints for other versions."
+            "Supported Python: 3.10–3.13. Revalidate constraints for other versions."
         )
     versions = {"python": platform.python_version()}
     for line in (ROOT / "requirements.txt").read_text().splitlines():

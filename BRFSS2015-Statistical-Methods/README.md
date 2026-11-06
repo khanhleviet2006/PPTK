@@ -2,7 +2,7 @@
 
 A reproducible research system combining complex-survey associations with leakage-safe classification. It uses the original CDC XPT for inference, separate protected prediction runs, and a distinct approximate processed-data reproduction. No causal or clinical diagnostic claims are supported by this cross-sectional survey.
 
-Start with [QUICK_START.md](QUICK_START.md) or [the Colab master notebook](notebooks/00_Run_All_Colab.ipynb). Python 3.10–3.12, Linux/Colab CPU. Exact core dependencies are pinned; optional boosters are in requirements-boosters.txt. Full literature evidence, outcome definitions, estimands, missing-data assumptions and experiment budgets are in docs/.
+Start with [QUICK_START.md](QUICK_START.md) or [the Colab master notebook](notebooks/00_Run_All_Colab.ipynb). Python 3.10–3.13, Linux/Colab CPU. Core dependency constraints and tested environment locks are recorded; optional boosters are in requirements-boosters.txt. Full literature evidence, outcome definitions, estimands, missing-data assumptions and experiment budgets are in docs/.
 
 The primary binary contrast is self-reported diabetes versus explicit no diabetes, excluding pregnancy-only/borderline answers. Three-category core-question status is available as a secondary analysis and never claims complete prediabetes ascertainment. Missing optional-module answers are not confirmed negatives. Survey inference uses _LLCPWT, _STSTR and nested _PSU with a design-based Taylor covariance, not ordinary IID weighted-regression errors.
 
@@ -17,3 +17,6 @@ Post-audit extension: use [POST_AUDIT_COLAB_RUNBOOK.md](docs/POST_AUDIT_COLAB_RU
 
 
 Colab repair: see [end-to-end runbook](docs/COLAB_END_TO_END.md). The master now defaults to NEW_PROTOCOL, which works from a source-only checkout; LEGACY_RESUME still requires the original complete frozen bundle. See [verification](reports/COLAB_REPAIR_AUDIT.md).
+
+
+Current Python 3.13 setup and Final Test policy: see [COLAB_QUICK_START.md](docs/COLAB_QUICK_START.md) and the current [fix report](docs/COLAB_RUN_ALL_FIX_REPORT.md). The master now defaults to development plus report; Final Test is explicit opt-in.
