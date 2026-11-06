@@ -36,3 +36,9 @@ The user's Colab traceback reports Python 3.13 and only CalledProcessError exit 
 Schema was backed up before edits under `/workspace/brfss_schema_backups/`, content hash `1452e7a4551f495935f0a595f948df95a3cdf0d348a72fb507613ac7cbf8245a`. All pre-existing unresolved requirements were preserved. No VERIFIED/safe approvals were granted. Timing remains pending for every active variable. Survey weight/strata/PSU now require individual definition/page checks instead of relying on a blanket design status. Train/Test history remains UNKNOWN.
 
 20 nontraining tests passed. `00_Audit/current_schema_verification.json` records the current schema-only audit and missing evidence. Actual raw-code counts, codebook PDF and page-evidence artifacts are absent in this workspace, so no real-data raw audit or codebook comparison was rerun. No Train/CV or Final Test ran; original data were not modified.
+
+## Evidence Review target metadata fix — 2026-11-06
+
+21 nontraining tests PASS. Regression coverage verifies DIABETE3 target_review page 21 is preserved in CSV, pending status remains source_verified=false, externally supplied VERIFIED is reflected without promotion, a subsequent schema edit is reread, input schema bytes remain unchanged, recorded citations/checksum are distinguished from computed missing checks, original unverified requirements and UNKNOWN history remain, and CRC/SHA/raw-domain checks continue unchanged. Only synthetic fixtures were executed; the latest Drive evidence was not independently rerun here.
+
+Notebook Evidence Review explicitly rereads the selected SCHEMA on Drive, reloads the source module to avoid cached functions, and prints module/schema paths, schema checksum and current target_review. Reports retain original unresolved declarations while separately showing available evidence and computed issues. No schema, verification/safety/history status, original data, training or final-test lock was changed. No new research stage was added.

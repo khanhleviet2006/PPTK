@@ -68,7 +68,9 @@ def readiness(s):
 
 def compare_raw_codes(schema_path, counts_path, metadata_path, preflight_path, output):
     """Compare every observed code with PROPOSED domains, never approve their meaning."""
-    s=json.loads(Path(schema_path).read_text());counts=pd.read_csv(counts_path,keep_default_na=False)
+    schema_bytes=Path(schema_path).read_bytes()
+    schema_hash=hashlib.sha256(schema_bytes).hexdigest()
+    s=json.loads(schema_bytes);counts=pd.read_csv(counts_path,keep_default_na=False)
     meta=json.loads(Path(metadata_path).read_text());pre=json.loads(Path(preflight_path).read_text())
     if not {'variable','raw_value','count'}<=set(counts): raise ValueError('Invalid raw-code CSV columns.')
     numeric=pd.to_numeric(counts['count'],errors='raise')
@@ -79,7 +81,12 @@ def compare_raw_codes(schema_path, counts_path, metadata_path, preflight_path, o
     if out.exists():raise FileExistsError('Review output already exists.')
     out.mkdir(parents=True)
     report=[]
-    specs={**s['features'],**s.get('alternatives',{}),s['target']:{'raw_valid_values':[float(k) for k in s['label_map']], 'missing_codes':s.get('target_review',{}).get('missing_codes',[])}}
+    # Label-map codes define the raw target domain, while source metadata belongs
+    # to target_review. Do not discard its page/status or infer approval from codes.
+    target_spec={**s.get('target_review',{}),
+                 'raw_valid_values':[float(k) for k in s['label_map']],
+                 'missing_codes':s.get('target_review',{}).get('missing_codes',[])}
+    specs={**s['features'],**s.get('alternatives',{}),s['target']:target_spec}
     for n,spec in specs.items():
         part=counts[counts.variable.eq(n)];unknown=[];missing=0
         for row in part.itertuples():
@@ -98,6 +105,8 @@ def compare_raw_codes(schema_path, counts_path, metadata_path, preflight_path, o
                            row_total_matches=bool(total==meta.get('rows') and not part.empty),
                            proposed_missing_count=missing,unexpected_codes=json.dumps(unknown),
                            source_verified=spec.get('verification_status')=='VERIFIED',citation_page=spec.get('citation_page'),
+                           verification_status=spec.get('verification_status','UNSPECIFIED'),
+                           citation_recorded=isinstance(spec.get('citation_page'),int) and not isinstance(spec.get('citation_page'),bool) and spec['citation_page']>0,
                            note='Agreement with a proposal does not verify CDC meaning.'))
     pd.DataFrame(report).to_csv(out/'variable_evidence_review.csv',index=False)
     provenance=pre.get('input_provenance',pre);rawprov=meta.get('input_provenance',{})
@@ -114,6 +123,19 @@ def compare_raw_codes(schema_path, counts_path, metadata_path, preflight_path, o
                  issues=readiness(s),unexpected_codes_are_proposal_mismatches=True,
                  training_permitted=False,train_cv_run=False,final_test_run=False,
                  composites_enabled=list(s.get('composites',{})),split_history=s.get('split_history',{'status':'UNKNOWN'}))
+    summary['schema_used']={'path':str(Path(schema_path).resolve()),'sha256':schema_hash,
+                            'target_citation_page':target_spec.get('citation_page'),
+                            'target_verification_status':target_spec.get('verification_status','UNSPECIFIED')}
+    summary['declared_unverified_items']=list(s.get('unverified_items',[]))
+    summary['computed_issues']=readiness({**s,'unverified_items':[]})
+    summary['evidence_available']={
+        'codebook_sha256_recorded':bool(s.get('codebook_access',{}).get('sha256')),
+        'citation_pages_recorded':{n:v.get('citation_page') for n,v in specs.items()
+             if isinstance(v.get('citation_page'),int) and not isinstance(v.get('citation_page'),bool) and v['citation_page']>0},
+        'raw_domain_agreement':{r['variable']:r['present'] and r['row_total_matches'] and r['unexpected_codes']=='[]' for r in report}}
+    summary['evidence_interpretation']='Recorded pages/hashes and domain agreement are evidence availability, not semantic verification or leakage safety. Declared unresolved requirements remain unchanged and require explicit reconciliation.'
+    if sha256(schema_path)!=schema_hash:
+        raise RuntimeError('Schema changed during Evidence Review; rerun using a fresh output directory.')
     summary['composite_audit']={name:{'definition':parts,'unknown_predictors':sorted(set(parts)-set(s['features'])),
         'weighting':'Equal-count exploratory index only','missing_policy':'Missing if any component missing',
         'validated_clinical_scale':False,'review_status':'REQUIRES_EXPLICIT_DEFINITION_AND_TIMING_REVIEW'}

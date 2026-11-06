@@ -46,6 +46,36 @@ class EvidenceTests(unittest.TestCase):
         sp=self.p/'s.json';sp.write_text(json.dumps(self.schema()))
         r=extract_codebook_evidence(pdf,sp,self.p/'pages.json')
         self.assertFalse(r['year_and_document_version_verified']);self.assertEqual(r['candidate_pages']['HIGHBP3'],[])
+    def test_target_page_and_status_use_latest_drive_schema_without_approval(self):
+        import pandas as pd
+        s=self.schema();s['target_review']={'citation_page':21,'verification_status':'PENDING','missing_codes':[7,9]}
+        s['codebook_access']={'sha256':'a'*64};s['split_history']={'status':'UNKNOWN'}
+        s['unverified_items'].append('Official document review requires reconciliation')
+        sp=self.p/'drive_schema.json';sp.write_text(json.dumps(s))
+        csv=self.p/'counts.csv';csv.write_text('variable,raw_value,count\nHIGHBP3,1,2\nDIABETE3,1,1\nDIABETE3,3,1\n')
+        meta=self.p/'meta.json';meta.write_text(json.dumps({'rows':2,'container_sha256':'a'*64,'raw_code_counts_sha256':sha256(csv),'input_provenance':{'member_sha256':'b'*64,'crc_checked':True}}))
+        pre=self.p/'pre.json';pre.write_text(json.dumps({'xpt_reported_rows':2,'container_sha256':'a'*64,'member_sha256':'b'*64,'crc_checked':True}))
+        original=sp.read_bytes()
+        summary=compare_raw_codes(sp,csv,meta,pre,self.p/'first')
+        row=pd.read_csv(self.p/'first/variable_evidence_review.csv').set_index('variable').loc['DIABETE3']
+        self.assertEqual(row.citation_page,21);self.assertFalse(row.source_verified)
+        self.assertEqual(row.verification_status,'PENDING');self.assertTrue(row.citation_recorded)
+        self.assertTrue(summary['integrity']['crc_checked']);self.assertTrue(summary['integrity']['raw_counts_hash_matches'])
+        self.assertEqual(summary['schema_used']['sha256'],sha256(sp));self.assertEqual(sp.read_bytes(),original)
+        self.assertEqual(summary['declared_unverified_items'],s['unverified_items'])
+        self.assertIn('DIABETE3',summary['evidence_available']['citation_pages_recorded'])
+        self.assertNotIn('DIABETE3: actual codebook PDF page missing.',summary['computed_issues'])
+        self.assertNotIn('Official document SHA256 missing.',summary['computed_issues'])
+        self.assertIn('Existing split/prior Test-use history unknown.',summary['computed_issues'])
+        self.assertFalse(summary['training_permitted'])
+        # External schema edit between calls must be read, not cached or replaced.
+        s['target_review'].update(citation_page=22,verification_status='VERIFIED')
+        sp.write_text(json.dumps(s));changed=sp.read_bytes()
+        latest=compare_raw_codes(sp,csv,meta,pre,self.p/'second')
+        row=pd.read_csv(self.p/'second/variable_evidence_review.csv').set_index('variable').loc['DIABETE3']
+        self.assertEqual(row.citation_page,22);self.assertTrue(row.source_verified)
+        self.assertEqual(sp.read_bytes(),changed);self.assertFalse(s['codebook_reviewed'])
+        self.assertEqual(latest['split_history']['status'],'UNKNOWN')
     def test_audit_only_train_denied_before_output_or_data_read(self):
         sp=self.p/'s.json';s=self.schema();s['audit_only']=True;sp.write_text(json.dumps(s))
         out=self.p/'run'
