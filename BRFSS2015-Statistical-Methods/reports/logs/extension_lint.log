@@ -1,0 +1,18 @@
+notebooks/00_Run_All_Colab.ipynb:cell 2:1:1: E401 [*] Multiple imports on one line
+  |
+1 | import os, sys, subprocess
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^ E401
+2 | from pathlib import Path
+  |
+  = help: Split imports
+
+reports/notebook_extension_execution/00_Run_All_Colab.ipynb:cell 2:1:1: E401 [*] Multiple imports on one line
+  |
+1 | import os, sys, subprocess
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^ E401
+2 | from pathlib import Path
+  |
+  = help: Split imports
+
+Found 2 errors.
+[*] 2 fixable with the `--fix` option.

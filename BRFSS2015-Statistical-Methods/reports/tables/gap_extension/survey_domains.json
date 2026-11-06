@@ -1,0 +1,8 @@
+{
+  "source_sha256": "bfe9e62977cfc5183e51c3e8bdb5193510995cc3c21b225e568f537ad300b1b9",
+  "analysis": "Full2015 eligible-domain descriptive inference, including legacy-test respondents; independent of predictive selection/evaluation",
+  "outcome": "DIABETE3=1 vs3",
+  "design": "_LLCPWT/_STSTR/nested_PSU Taylor with zero scores outside domain",
+  "minimum_n": 50,
+  "rows": 41
+}

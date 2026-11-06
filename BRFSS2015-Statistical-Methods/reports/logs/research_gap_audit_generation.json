@@ -1,0 +1,22 @@
+{
+  "quotes_verified": 22,
+  "gaps": 21,
+  "classes": {
+    "VERIFIED": 10,
+    "PARTIALLY_VERIFIED": 8,
+    "HYPOTHESIS": 1,
+    "UNVERIFIED": 2
+  },
+  "implementation": {
+    "PARTIALLY_ADDRESSED": 12,
+    "NOT_A_VALIDATED_GAP": 2,
+    "ADDRESSED_WITHIN_SCOPE": 3,
+    "NOT_TESTED": 1,
+    "NOT_IMPLEMENTED": 1,
+    "OUT_OF_SCOPE_NOT_IMPLEMENTED": 2
+  },
+  "cv_selection_matches_frozen": true,
+  "protected_hashes_unchanged": true,
+  "test_evaluation_count": 1,
+  "verify_only": false
+}

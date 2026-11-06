@@ -1,0 +1,18 @@
+seed: 2015
+project_root: /content/drive/MyDrive/BRFSS2015_Statistical_Methods_AZ
+data_path: null
+codebook_path: null
+candidate_directories:
+  - /content/drive/MyDrive/BRFSS2015_Statistical_Methods_AZ/data/raw
+  - /content/drive/MyDrive/BRFSS2015
+  - /content/drive/MyDrive/data
+  - data/raw
+outcome: binary
+exclude_territories: true
+test_fraction: 0.20
+primary_metric: balanced_accuracy
+weight: _LLCPWT
+strata: _STSTR
+psu: _PSU
+expected_records: 441456
+expected_columns: 330

@@ -1,0 +1,22 @@
+# CDC codebook 2015. See docs/DATA_DICTIONARY.md for semantics/references.
+# Enumerated valid codes prevent blanket 7/9 recoding of continuous measurements.
+variables:
+  _AGEG5YR: {kind: categorical, valid: [1,2,3,4,5,6,7,8,9,10,11,12,13], group: demographic}
+  SEX: {kind: categorical, valid: [1,2], group: demographic}
+  _BMI5: {kind: continuous, range: [1,9999], scale: 0.01, group: biomedical}
+  EDUCA: {kind: categorical, valid: [1,2,3,4,5,6], group: socioeconomic}
+  INCOME2: {kind: categorical, valid: [1,2,3,4,5,6,7,8], group: socioeconomic}
+  _RACE: {kind: categorical, valid: [1,2,3,4,5,6,7,8], group: demographic}
+  BPHIGH4: {kind: categorical, valid: [1,2,3,4], group: biomedical}
+  TOLDHI2: {kind: categorical, valid: [1,2], group: biomedical}
+  _SMOKER3: {kind: categorical, valid: [1,2,3,4], group: lifestyle}
+  EXERANY2: {kind: categorical, valid: [1,2], group: lifestyle}
+  _FRUTSUM: {kind: continuous, range: [0,99998], scale: 0.01, group: nutrition}
+  _VEGESUM: {kind: continuous, range: [0,99998], scale: 0.01, group: nutrition}
+  _DRNKWEK: {kind: continuous, range: [0,98999], scale: 0.01, group: lifestyle}
+  GENHLTH: {kind: categorical, valid: [1,2,3,4,5], group: health}
+  PHYSHLTH: {kind: continuous, range: [0,30], zero_codes: [88], group: health}
+  MENTHLTH: {kind: continuous, range: [0,30], zero_codes: [88], group: health}
+  HLTHPLN1: {kind: categorical, valid: [1,2], group: access}
+  MEDCOST: {kind: categorical, valid: [1,2], group: access}
+  CHECKUP1: {kind: categorical, valid: [1,2,3,4,8], group: access}

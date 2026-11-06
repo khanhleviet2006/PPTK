@@ -1,0 +1,7 @@
+# Extension reproducibility
+
+Recoverable pre-modification checkpoint: /workspace/research_checkpoints/brfss_before_gap_extension.tar.gz (local evidence; not a required execution path). Baseline39 tests passed before modification. Legacy src/config/model/split/evaluation evidence remained unchanged; audit snapshot checks in runner and temporal workflow.
+
+Each experiment stores config, source-run signature, OOF rows checksum, fold metrics, feature lists and inner thresholds. Fixed outer splits/development IDs in run folder; seed20261106. Source/dependency versions in manifest. Model serialization uses trusted joblib artifacts. Completed experiment records resume by checksum; modified scientific engine requires new run directory, not deletion of evidence.
+
+First attempt had a SMOTENC feature-name export error (77/78); v2 corrected it. V3 exposed a nested-pipeline wrapper failure in five selector configs; canonical v4 corrects the wrapper and isolates inner preprocessing for RFECV/permutation. Temporal evaluation used the earlier unchanged LR factory branch, was not repeated, and is not evidence for the new selector variants. Exact earlier engine sources were recovered with verified original hashes. Earlier attempt preserved. This was development debugging, not repeated final-test evaluation. 2017 evaluation ledger has one batch and no post-result optimization. Original2015 final ledger remains1.

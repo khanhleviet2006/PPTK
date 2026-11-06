@@ -1,0 +1,9 @@
+{
+  "overall": "PARTIAL_COMPLETION",
+  "binary_experiments": 78,
+  "planned": 78,
+  "three_class_experiments": 4,
+  "legacy_test_evaluations": 1,
+  "temporal_evaluations": 1,
+  "colab": "COLAB_RUNTIME_NOT_VERIFIED"
+}

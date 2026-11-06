@@ -1,0 +1,43 @@
+{
+  "signature": "cd4f6119e8f37731fb9dffca03b6a887b696124b31058a5bdd574ead7f3aaf79",
+  "versions": {
+    "numpy": "2.2.6",
+    "pandas": "2.2.3",
+    "scipy": "1.15.3",
+    "scikit-learn": "1.6.1",
+    "statsmodels": "0.14.4",
+    "imbalanced-learn": "0.13.0",
+    "python": "3.12.14"
+  },
+  "source_path": "/workspace/brfss_sources/LLCP2015.XPT",
+  "synthetic": false,
+  "profile": "quick",
+  "mode": "binary",
+  "seed": 2015,
+  "code": {
+    "src/__init__.py": "aaaf84c42282e45e31ee3cfad9d27f52ee440b8af85ad6bb062541e1d2605b01",
+    "src/audit/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/audit/validation.py": "402d277a841c10c2da16b5ccf020d5a3f87b2926e32fa4ac45263294d3d219d7",
+    "src/data/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/data/ingest.py": "6cb6a1fb4f91d1a7884310a2aa968b2453ff1a5b9f542d48291a193447378405",
+    "src/data/outcomes.py": "fa2dc32b58c00d9fa1acd832fc2cfa41b32c3de17ff96403738e57bbe55022c0",
+    "src/data/synthetic.py": "80cca60a0bb67b697ebba5a1dd3eadddd69a73932a9e75d9861c1883904bc290",
+    "src/evaluation/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/evaluation/final.py": "55f4ebd891d4760267b5ae14b294e9b75feec03038e40a0bb099c799003fd9ba",
+    "src/evaluation/metrics.py": "4f399efb67b5fdf144a60d28b9765afd8d8667caa52b9e00a236d10f4a36e452",
+    "src/features/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/features/engineering.py": "4220c4ef3cae436ee233382f23bf43ee31365012e1ab1618a4d92e98282a2c1e",
+    "src/modeling/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/modeling/experiments.py": "a8b22fa2d847a025b48ba9ad4490af900f688bcd49766f46d5d71a36b6ea519d",
+    "src/modeling/models.py": "602f6b8b118ad94b1555f43d73a4bbab047f980c1cf4569701dbca78055b5439",
+    "src/modeling/splits.py": "68de9c1cb0a96281eedd5ae981a80070d3aa95fc33fbd0e6796a0f1a73111b77",
+    "src/pipeline.py": "7df5b143aa2331d3cc5b5360217ba42afe0f875350206a9f1dbd0b560e712bf8",
+    "src/reporting/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/reporting/report.py": "8fd060b3a9517fd25c8fa14f4a514ed56f353b57f2c2e7b25992cd81b160a811",
+    "src/statistics/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/statistics/analysis.py": "7defb3341b11ed4276f1de23de55a5b0fa0b185e265816d47be52d058a95c684",
+    "src/statistics/survey.py": "abb37e825cf948cc615bc527de4dfa190156243f656781b044ffec5518490fac",
+    "src/utils/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/utils/io.py": "948a5301ff95d3d7fbb331dbffde82333e64ac02775a12b0ade88d220fe8d227"
+  }
+}

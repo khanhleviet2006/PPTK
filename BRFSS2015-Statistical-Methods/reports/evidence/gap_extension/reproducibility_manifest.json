@@ -1,0 +1,47 @@
+{
+  "python": "3.12.14",
+  "current_sources": {
+    "src_extensions/__init__.py": "f8086d307725fb567fb901ef484e3ee1894a69a96663de14cc32ce3b61ad2dc5",
+    "src_extensions/ancillary.py": "7216511e9e109f6d30d48a9bf88536b37bc968b134970cddec42e9d470e9d4d2",
+    "src_extensions/runner.py": "7ddb8ccd58efe2ffeebda68f010d03b0ec770b013c628765f7f2e77f40c8cfb3",
+    "src_extensions/experiments.py": "1cc2dc79cdd4d0db80cad7bbef9bbbbcc353a0bc1088103d644934fb6f8ba0f8",
+    "src_extensions/temporal.py": "84e42dc66dbd247ea60ca141a5f911a4fd23bc09fcceaaf59ab3ec12543a60e6"
+  },
+  "legacy_snapshot_sha256": "262c6cbdee1b2c486dbd692b8ecd199c81c0383aa794b9e74ff7d8da50ba5f1d",
+  "canonical_run": {
+    "signature": "f8131581d249400140cf6660feddfa4c4776133dd18bd7a02b410de9faf879ce",
+    "profile": "QUICK",
+    "synthetic": false,
+    "mode": "binary",
+    "seed": 20261106,
+    "source": "bfe9e62977cfc5183e51c3e8bdb5193510995cc3c21b225e568f537ad300b1b9",
+    "n": 2000,
+    "code": {
+      "src_extensions/runner.py": "7ddb8ccd58efe2ffeebda68f010d03b0ec770b013c628765f7f2e77f40c8cfb3",
+      "src_extensions/experiments.py": "1cc2dc79cdd4d0db80cad7bbef9bbbbcc353a0bc1088103d644934fb6f8ba0f8"
+    },
+    "exclusion": "all legacy final-test IDs excluded; binary restricted to old training IDs",
+    "scope": "EXPLORATORY_POST_AUDIT_DEVELOPMENT_CV",
+    "primary_metric": "outer-CV balanced_accuracy with inner-training thresholds",
+    "versions": {
+      "scikit-learn": "1.6.1",
+      "numpy": "2.2.6",
+      "pandas": "2.2.3",
+      "shap": "0.47.2",
+      "optuna": "4.3.0"
+    }
+  },
+  "old_engines_recovered_and_hash_verified": [
+    "recovery_versions/experiments_v1.py",
+    "recovery_versions/experiments_v2.py",
+    "recovery_versions/experiments_v3.py"
+  ],
+  "temporal_fitted_source": "recovery_versions/temporal_v1.py",
+  "temporal_followup": "Only ledger guard was subsequently strengthened; frozen LR, threshold and2017 results were not modified or reevaluated.",
+  "recovered_source_hashes": {
+    "recovery_versions/experiments_v3.py": "9d3a9709b032b1e73a4cd576145744b58977416010dad3fc7bd8856d1e52157f",
+    "recovery_versions/experiments_v2.py": "c796b65f342847a55c36d33b3210c370c2f37f3eca2945ed6a10e2dd683dd557",
+    "recovery_versions/temporal_v1.py": "5f91fc83db762bffd09b6d4db29ccf9bdd4c6b72e451baf14f65d7dc3fc76d1e",
+    "recovery_versions/experiments_v1.py": "eb51ece04a8c9cbf0461ef622b84cae49036bf62c62a001a7b3691c217870683"
+  }
+}

@@ -1,0 +1,13 @@
+# Colab runbook
+
+Use Python 3.10–3.12. Upload/extract the repository to Drive under the default project root. Open notebooks/00_Run_All_Colab.ipynb in Colab. Set REPO to the repository folder, DATA_PATH to LLCP2015.XPT and CODEBOOK_PATH to codebook15_llcp.pdf. Data can live elsewhere; only configured bounded directories are searched. Normalize the trailing space in the CDC ZIP's XPT member. Do not upload secrets or commit raw data.
+
+The master mounts Drive, checks required repository files, installs exact core requirements and optional boosters, imports/version checks, locates data and runs phases in order. A Python/package mismatch stops with an error. If pip changes modules already imported, restart the Colab session then rerun; dependencies are installed before research imports. If Python has moved beyond 3.12, use an appropriate Colab runtime or revalidate dependency pins before changing the compatibility range.
+
+Use quick for first validation; standard for primary full experiments and extended for the finite extra hyperparameter comparisons. Set OUT under persistent Drive. Each stage commits a checkpoint only after its outputs are atomically replaced and hashed. Experiment OOF caches survive a disconnect. A partially completed individual fit restarts, while completed experiments resume. Keep source code/configs unchanged during a run. Reopening a clean kernel and executing the master resumes identical completed stages.
+
+If a Colab mount is absent, mount it before data discovery. A missing file error lists candidate folders and asks for DATA_PATH. Critical schema/design failures stop rather than fabricate data. No outcomes or weights are imputed. Singleton strata stop; do not casually switch to ordinary robust standard errors. No network access is needed after installing packages and placing CDC data/codebook.
+
+A disconnect during final evaluation leaves an ACCESSED test ledger; this is deliberately not automatically rerun. Audit any resulting predictions and the access history before deciding whether an interrupted evaluation can be completed; disclose the access. Do not delete the ledger to pretend the set is untouched. Writes use same-directory temporary files and os.replace; Drive's remote synchronization guarantees are weaker than local POSIX guarantees, so keep backups and check manifests after reconnection.
+
+Optional R cross-check: in Colab install r-base and r-cran-survey via apt, then run BRFSS_RSCRIPT=/usr/bin/Rscript python -m pytest tests/scientific/test_r_reference.py. The Python variance engine is independently tested against this reference; an actual Colab run remains unverified until executed there. Version and test records in reports/VERIFICATION.md document the environment actually tested.

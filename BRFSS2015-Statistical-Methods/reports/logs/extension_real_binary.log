@@ -1,0 +1,234 @@
+2026-11-06 09:40:51,224 Experiment {'model': 'logistic', 'stage': 'screen'}
+2026-11-06 09:40:51,577 Experiment {'model': 'decision_tree', 'stage': 'screen'}
+2026-11-06 09:40:51,804 Experiment {'model': 'random_forest', 'stage': 'screen'}
+2026-11-06 09:40:52,522 Experiment {'model': 'extra_trees', 'stage': 'screen'}
+2026-11-06 09:40:53,199 Experiment {'model': 'knn', 'stage': 'screen'}
+2026-11-06 09:40:53,393 Experiment {'model': 'naive_bayes', 'stage': 'screen'}
+2026-11-06 09:40:53,584 Experiment {'model': 'gb', 'stage': 'screen'}
+2026-11-06 09:40:54,043 Experiment {'model': 'gradient_boosting', 'stage': 'screen'}
+2026-11-06 09:40:55,160 Experiment {'model': 'xgboost', 'stage': 'screen'}
+2026-11-06 09:40:55,548 Experiment {'model': 'lightgbm', 'stage': 'screen'}
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+2026-11-06 09:40:56,289 Experiment {'model': 'catboost', 'stage': 'screen'}
+2026-11-06 09:40:57,083 Experiment {'model': 'logistic', 'selector': 'pca', 'k': 5, 'stage': 'features'}
+2026-11-06 09:40:57,381 Experiment {'model': 'logistic', 'selector': 'pca', 'k': 10, 'stage': 'features'}
+2026-11-06 09:40:57,682 Experiment {'model': 'logistic', 'selector': 'pca', 'k': 15, 'stage': 'features'}
+2026-11-06 09:40:57,990 Experiment {'model': 'logistic', 'selector': 'pca', 'k': 20, 'stage': 'features'}
+2026-11-06 09:40:58,352 Experiment {'model': 'logistic', 'selector': 'mutual_info', 'k': 5, 'stage': 'features'}
+2026-11-06 09:40:59,772 Experiment {'model': 'logistic', 'selector': 'mutual_info', 'k': 10, 'stage': 'features'}
+2026-11-06 09:41:01,178 Experiment {'model': 'logistic', 'selector': 'mutual_info', 'k': 15, 'stage': 'features'}
+2026-11-06 09:41:02,655 Experiment {'model': 'logistic', 'selector': 'mutual_info', 'k': 20, 'stage': 'features'}
+2026-11-06 09:41:04,062 Experiment {'model': 'logistic', 'selector': 'selectkbest', 'k': 5, 'stage': 'features'}
+2026-11-06 09:41:04,377 Experiment {'model': 'logistic', 'selector': 'selectkbest', 'k': 10, 'stage': 'features'}
+2026-11-06 09:41:04,692 Experiment {'model': 'logistic', 'selector': 'selectkbest', 'k': 15, 'stage': 'features'}
+2026-11-06 09:41:04,988 Experiment {'model': 'logistic', 'selector': 'selectkbest', 'k': 20, 'stage': 'features'}
+2026-11-06 09:41:05,282 Experiment {'model': 'logistic', 'selector': 'l1', 'k': 5, 'stage': 'features'}
+2026-11-06 09:41:05,597 Experiment {'model': 'logistic', 'selector': 'l1', 'k': 10, 'stage': 'features'}
+2026-11-06 09:41:05,904 Experiment {'model': 'logistic', 'selector': 'l1', 'k': 15, 'stage': 'features'}
+2026-11-06 09:41:06,253 Experiment {'model': 'logistic', 'selector': 'l1', 'k': 20, 'stage': 'features'}
+2026-11-06 09:41:06,582 Experiment {'model': 'logistic', 'selector': 'rfe', 'k': 5, 'stage': 'features'}
+2026-11-06 09:41:07,101 Experiment {'model': 'logistic', 'selector': 'rfe', 'k': 10, 'stage': 'features'}
+2026-11-06 09:41:07,602 Experiment {'model': 'logistic', 'selector': 'rfe', 'k': 15, 'stage': 'features'}
+2026-11-06 09:41:08,148 Experiment {'model': 'logistic', 'selector': 'rfe', 'k': 20, 'stage': 'features'}
+2026-11-06 09:41:08,880 Experiment {'model': 'logistic', 'selector': 'rf', 'k': 5, 'stage': 'features'}
+2026-11-06 09:41:09,598 Experiment {'model': 'logistic', 'selector': 'rf', 'k': 10, 'stage': 'features'}
+2026-11-06 09:41:10,407 Experiment {'model': 'logistic', 'selector': 'rf', 'k': 15, 'stage': 'features'}
+2026-11-06 09:41:11,209 Experiment {'model': 'logistic', 'selector': 'rf', 'k': 20, 'stage': 'features'}
+2026-11-06 09:41:11,958 Experiment {'model': 'logistic', 'selector': 'xgb', 'k': 5, 'stage': 'features'}
+2026-11-06 09:41:12,287 Experiment {'model': 'logistic', 'selector': 'xgb', 'k': 10, 'stage': 'features'}
+2026-11-06 09:41:12,623 Experiment {'model': 'logistic', 'selector': 'xgb', 'k': 15, 'stage': 'features'}
+2026-11-06 09:41:12,963 Experiment {'model': 'logistic', 'selector': 'xgb', 'k': 20, 'stage': 'features'}
+2026-11-06 09:41:13,340 Experiment {'model': 'logistic', 'selector': 'permutation', 'k': 5, 'stage': 'features'}
+2026-11-06 09:41:16,392 Experiment {'model': 'logistic', 'selector': 'permutation', 'k': 10, 'stage': 'features'}
+2026-11-06 09:41:19,386 Experiment {'model': 'logistic', 'selector': 'permutation', 'k': 15, 'stage': 'features'}
+2026-11-06 09:41:22,909 Experiment {'model': 'logistic', 'selector': 'permutation', 'k': 20, 'stage': 'features'}
+2026-11-06 09:41:26,132 Experiment {'model': 'logistic', 'selector': 'shap', 'k': 5, 'stage': 'features'}
+2026-11-06 09:41:27,306 Experiment {'model': 'logistic', 'selector': 'shap', 'k': 10, 'stage': 'features'}
+2026-11-06 09:41:28,018 Experiment {'model': 'logistic', 'selector': 'shap', 'k': 15, 'stage': 'features'}
+2026-11-06 09:41:28,741 Experiment {'model': 'logistic', 'selector': 'shap', 'k': 20, 'stage': 'features'}
+2026-11-06 09:41:29,462 Experiment {'model': 'logistic', 'selector': 'rfecv', 'stage': 'features'}
+2026-11-06 09:41:29,985 Experiment {'model': 'logistic', 'sampling': 'random_under', 'stage': 'imbalance'}
+2026-11-06 09:41:30,225 Experiment {'model': 'logistic', 'sampling': 'random_over', 'stage': 'imbalance'}
+2026-11-06 09:41:30,684 Experiment {'model': 'logistic', 'sampling': 'smotenc', 'stage': 'imbalance'}
+2026-11-06 09:41:31,428 Experiment {'model': 'logistic', 'weighted': True, 'stage': 'imbalance'}
+2026-11-06 09:41:31,657 Experiment {'model': 'random_forest', 'sampling': 'none', 'representation': 'continuous', 'stage': 'imbalance'}
+2026-11-06 09:41:32,339 Experiment {'model': 'xgboost', 'sampling': 'none', 'representation': 'continuous', 'stage': 'imbalance'}
+2026-11-06 09:41:32,532 Experiment {'model': 'lightgbm', 'sampling': 'none', 'representation': 'continuous', 'stage': 'imbalance'}
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+2026-11-06 09:41:32,766 Experiment {'model': 'random_forest', 'sampling': 'smote', 'representation': 'continuous', 'stage': 'imbalance'}
+2026-11-06 09:41:33,720 Experiment {'model': 'xgboost', 'sampling': 'smote', 'representation': 'continuous', 'stage': 'imbalance'}
+2026-11-06 09:41:33,959 Experiment {'model': 'lightgbm', 'sampling': 'smote', 'representation': 'continuous', 'stage': 'imbalance'}
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+2026-11-06 09:41:34,240 Experiment {'model': 'random_forest', 'sampling': 'adasyn', 'representation': 'continuous', 'stage': 'imbalance'}
+2026-11-06 09:41:35,268 Experiment {'model': 'xgboost', 'sampling': 'adasyn', 'representation': 'continuous', 'stage': 'imbalance'}
+2026-11-06 09:41:35,539 Experiment {'model': 'lightgbm', 'sampling': 'adasyn', 'representation': 'continuous', 'stage': 'imbalance'}
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+2026-11-06 09:41:35,839 Experiment {'model': 'adasyn_soft_voting', 'stage': 'ensemble'}
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+2026-11-06 09:41:37,319 Experiment {'model': 'adasyn_stacking', 'stage': 'ensemble'}
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+2026-11-06 09:41:40,864 Experiment {'model': 'soft_voting', 'stage': 'ensemble'}
+2026-11-06 09:41:42,313 Experiment {'model': 'hard_voting', 'stage': 'ensemble'}
+2026-11-06 09:41:42,916 Experiment {'model': 'weighted_voting', 'stage': 'ensemble'}
+2026-11-06 09:41:44,389 Experiment {'model': 'stacking', 'stage': 'ensemble'}
+2026-11-06 09:41:49,808 Experiment {'model': 'feature_ensemble', 'stage': 'ensemble'}
+2026-11-06 09:41:52,278 Experiment {'model': 'family_ensemble', 'stage': 'ensemble'}
+2026-11-06 09:41:53,756 Experiment {'model': 'logistic', 'missing': 'indicators', 'stage': 'missing'}
+2026-11-06 09:41:53,959 Experiment {'model': 'logistic', 'missing': 'iterative', 'stage': 'missing'}
+2026-11-06 09:41:54,297 Experiment {'model': 'logistic', 'search': True, 'stage': 'search'}
+2026-11-06 09:41:55,036 Experiment {'model': 'random_forest', 'search': True, 'stage': 'search'}
+2026-11-06 09:41:57,702 Experiment {'model': 'xgboost', 'search': True, 'stage': 'search'}
+2026-11-06 09:41:59,188 Experiment {'model': 'lightgbm', 'search': True, 'stage': 'search'}
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+2026-11-06 09:42:00,276 Experiment {'model': 'catboost', 'search': True, 'stage': 'search'}
+2026-11-06 09:42:02,849 Experiment {'model': 'logistic', 'calibration': 'sigmoid', 'stage': 'calibration'}
+2026-11-06 09:42:03,236 Experiment {'model': 'logistic', 'calibration': 'isotonic', 'stage': 'calibration'}

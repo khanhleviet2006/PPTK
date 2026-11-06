@@ -1,0 +1,12 @@
+{
+  "mode": "binary",
+  "total": 441456,
+  "eligible": 422558,
+  "excluded": 18898,
+  "complete_case": 243529,
+  "labels": {
+    "0.0": 366591,
+    "1.0": 55967
+  },
+  "outcome_semantics": "self-reported diagnosis; not incident risk"
+}

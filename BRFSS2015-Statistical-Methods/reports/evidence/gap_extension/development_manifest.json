@@ -1,0 +1,23 @@
+{
+  "signature": "f8131581d249400140cf6660feddfa4c4776133dd18bd7a02b410de9faf879ce",
+  "profile": "QUICK",
+  "synthetic": false,
+  "mode": "binary",
+  "seed": 20261106,
+  "source": "bfe9e62977cfc5183e51c3e8bdb5193510995cc3c21b225e568f537ad300b1b9",
+  "n": 2000,
+  "code": {
+    "src_extensions/runner.py": "7ddb8ccd58efe2ffeebda68f010d03b0ec770b013c628765f7f2e77f40c8cfb3",
+    "src_extensions/experiments.py": "1cc2dc79cdd4d0db80cad7bbef9bbbbcc353a0bc1088103d644934fb6f8ba0f8"
+  },
+  "exclusion": "all legacy final-test IDs excluded; binary restricted to old training IDs",
+  "scope": "EXPLORATORY_POST_AUDIT_DEVELOPMENT_CV",
+  "primary_metric": "outer-CV balanced_accuracy with inner-training thresholds",
+  "versions": {
+    "scikit-learn": "1.6.1",
+    "numpy": "2.2.6",
+    "pandas": "2.2.3",
+    "shap": "0.47.2",
+    "optuna": "4.3.0"
+  }
+}

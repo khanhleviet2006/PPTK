@@ -1,0 +1,30 @@
+{
+  "config": {
+    "model": "logistic",
+    "weighted": true,
+    "stage": "temporal_development"
+  },
+  "threshold": 0.30000000000000004,
+  "features": [
+    "_AGEG5YR",
+    "SEX",
+    "_BMI5",
+    "EDUCA",
+    "INCOME2",
+    "_RACE",
+    "_SMOKER3",
+    "EXERANY2",
+    "GENHLTH",
+    "PHYSHLTH",
+    "MENTHLTH",
+    "HLTHPLN1",
+    "MEDCOST",
+    "CHECKUP1"
+  ],
+  "model_sha256": "1dd8a6cbabcb6868a273ae3bf22875d73d91098073132a0a27dc2f6c9eeb675c",
+  "development_manifest_sha256": "d68289b9d27fecafe35e0b680cdba8fc3d19188043d826091b191f28208aa765",
+  "external_sample_n": 5000,
+  "external_sampling_seed": 20261106,
+  "selection": "training 2015 outer CV only; threshold training OOF only; no 2017 row labels accessed before this freeze",
+  "uncertainty": "conditional respondent bootstrap; not survey prediction CI"
+}

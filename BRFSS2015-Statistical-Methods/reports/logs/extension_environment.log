@@ -1,0 +1,25 @@
+mkdir -p failed for path /home/agent/.config/matplotlib: [Errno 30] Read-only file system: '/home/agent/.config/matplotlib'
+Matplotlib created a temporary cache directory at /tmp/matplotlib-14x2twd6 because there was an issue with the default path (/home/agent/.config/matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Fontconfig error: No writable cache directories
+WARNING: The directory '/home/agent/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+No broken requirements found.
+{
+  "python": "3.12.14",
+  "numpy": "2.2.6",
+  "pandas": "2.2.3",
+  "scipy": "1.15.3",
+  "scikit-learn": "1.6.1",
+  "statsmodels": "0.14.4",
+  "imbalanced-learn": "0.13.0",
+  "matplotlib": "3.10.1",
+  "seaborn": "0.13.2",
+  "PyYAML": "6.0.2",
+  "pyreadstat": "1.2.8",
+  "nbformat": "5.10.4",
+  "nbclient": "0.10.2",
+  "ipykernel": "6.29.5",
+  "pytest": "8.3.5",
+  "ruff": "0.11.13",
+  "requests": "2.32.3",
+  "pypdf": "5.5.0"
+}

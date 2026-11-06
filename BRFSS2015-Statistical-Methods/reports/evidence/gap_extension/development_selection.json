@@ -1,0 +1,8 @@
+{
+  "experiment": {
+    "model": "soft_voting",
+    "stage": "ensemble"
+  },
+  "criterion": "outer development BA; optimistic after candidate selection",
+  "confirmatory_evaluation": "NOT_EXECUTED"
+}

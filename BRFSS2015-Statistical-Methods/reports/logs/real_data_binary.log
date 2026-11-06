@@ -1,0 +1,14 @@
+2026-11-06 07:49:38,292 INFO RUN audit
+2026-11-06 07:49:49,959 INFO RUN cohort
+2026-11-06 07:49:50,288 INFO RUN descriptive
+2026-11-06 07:50:02,381 INFO RUN inference
+2026-11-06 07:54:33,254 INFO RUN split
+2026-11-06 07:54:35,189 INFO RUN develop
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+2026-11-06 07:55:42,781 INFO RUN evaluate
+2026-11-06 07:57:15,491 INFO RUN report

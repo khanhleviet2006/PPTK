@@ -1,0 +1,36 @@
+.......................................                                  [100%]
+=============================== warnings summary ===============================
+../brfss-venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:64
+  /workspace/brfss-venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:64: PyparsingDeprecationWarning: 'oneOf' deprecated - use 'one_of'
+    prop = Group((name + Suppress("=") + comma_separated(value)) | oneOf(_CONSTANTS))
+
+../brfss-venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:85
+../brfss-venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:85
+../brfss-venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:85
+../brfss-venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:85
+../brfss-venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:85
+../brfss-venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:85
+  /workspace/brfss-venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:85: PyparsingDeprecationWarning: 'parseString' deprecated - use 'parse_string'
+    parse = parser.parseString(pattern)
+
+../brfss-venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:89
+../brfss-venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:89
+../brfss-venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:89
+../brfss-venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:89
+../brfss-venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:89
+../brfss-venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:89
+  /workspace/brfss-venv/lib/python3.12/site-packages/matplotlib/_fontconfig_pattern.py:89: PyparsingDeprecationWarning: 'resetCache' deprecated - use 'reset_cache'
+    parser.resetCache()
+
+../brfss-venv/lib/python3.12/site-packages/matplotlib/_mathtext.py:45
+  /workspace/brfss-venv/lib/python3.12/site-packages/matplotlib/_mathtext.py:45: PyparsingDeprecationWarning: 'enablePackrat' deprecated - use 'enable_packrat'
+    ParserElement.enablePackrat()
+
+tests/integration/test_pipeline.py::test_end_to_end_resume
+tests/integration/test_pipeline.py::test_end_to_end_resume
+tests/integration/test_pipeline.py::test_end_to_end_resume
+  /workspace/brfss-venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+39 passed, 17 warnings in 21.18s

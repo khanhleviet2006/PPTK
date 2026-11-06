@@ -1,0 +1,35 @@
+{
+  "retrieved": "2026-11-06",
+  "files": [
+    {
+      "filename": "LLCP2015XPT.zip",
+      "source": "https://www.cdc.gov/brfss/annual_data/2015/files/LLCP2015XPT.zip",
+      "sha256": "38bfd48c64b99328c67feac36cedfff6f2991d49e89c4ffd549083cb626764f0",
+      "bytes": 98843355
+    },
+    {
+      "filename": "LLCP2015.XPT",
+      "source": "archive member LLCP2015.XPT (trailing space normalized)",
+      "sha256": "bfe9e62977cfc5183e51c3e8bdb5193510995cc3c21b225e568f537ad300b1b9",
+      "bytes": 1165490800
+    },
+    {
+      "filename": "codebook15_llcp.pdf",
+      "source": "https://www.cdc.gov/brfss/annual_data/2015/pdf/codebook15_llcp.pdf",
+      "sha256": "238bdeecb39c35e871384473cb24c02e3866e4f719da8fcf42154a35c051faca",
+      "bytes": 6949454
+    },
+    {
+      "filename": "2015_questionnaire.pdf",
+      "source": "https://www.cdc.gov/brfss/questionnaires/pdf-ques/2015-brfss-questionnaire-12-29-14.pdf",
+      "sha256": "b0aba1cda4bc97e71c7bef963c71256778f4e903e40e8fb72a58e362cfea472b",
+      "bytes": 1126219
+    },
+    {
+      "filename": "overview_2015.pdf",
+      "source": "https://www.cdc.gov/brfss/annual_data/2015/pdf/overview_2015.pdf",
+      "sha256": "be69a79e68f34d641282e771f012a75e98bfbfdb7d532e369cf784a1c2595a65",
+      "bytes": 122247
+    }
+  ]
+}

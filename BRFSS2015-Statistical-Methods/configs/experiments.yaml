@@ -1,0 +1,12 @@
+primary_metric: balanced_accuracy
+selection_rule: largest mean CV balanced accuracy; lexical experiment ID breaks exact ties
+profiles:
+  quick: {folds: 3, max_train: 4000, bootstrap: 100, permutations: 2}
+  standard: {folds: 5, max_train: null, bootstrap: 1000, permutations: 5}
+  extended: {folds: 5, max_train: null, bootstrap: 2000, permutations: 10}
+models: [logistic, decision_tree, random_forest, extra_trees, gradient_boosting, xgboost, lightgbm, catboost, feature_ensemble, soft_voting, stacking]
+selectors: [original, clinical, mutual_info, l1, permutation, tree, rfe, interactions]
+top_k: [5,10,15,20]
+imbalance: [none, class_weight, random_under, smote, borderline_smote]
+# SMOTE uses SMOTENC for mixed raw variables. BorderlineSMOTE only for continuous-only X.
+threshold_grid: [0.20,0.30,0.40,0.50,0.60,0.70,0.80]

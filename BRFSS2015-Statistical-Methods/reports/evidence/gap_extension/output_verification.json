@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "binary_experiments": 78,
+  "legacy_overlap": 0,
+  "legacy_artifacts_unchanged": true,
+  "legacy_evaluation_count": 1,
+  "temporal_evaluation_count": 1
+}

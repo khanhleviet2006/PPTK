@@ -1,0 +1,14 @@
+{
+  "experiment_id": "4ab0468e0f1f4a90",
+  "experiment": {
+    "model": "logistic",
+    "selector": "original",
+    "k": 10,
+    "imbalance": "class_weight",
+    "budget": 1
+  },
+  "threshold": 0.4,
+  "model_sha256": "b7331cd0b6ac8e80ade4d599296e1b572e8d99bd8dddafeaa5fcd8f5a2de0a6d",
+  "cv_mean": 0.750592240884912,
+  "warning": "OOF score used for selection and threshold tuning; not an unbiased final performance estimate"
+}

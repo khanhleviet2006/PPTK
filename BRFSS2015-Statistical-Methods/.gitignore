@@ -1,0 +1,16 @@
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+.venv/
+data/
+runs/
+*.xpt
+*.XPT
+*.zip
+*.parquet
+*.joblib
+.ipynb_checkpoints/
+.env
+
+research_checkpoints/

@@ -1,0 +1,17 @@
+# Scientific audit and publication gates
+
+The survey engine is an actual stratified-PSU Taylor estimator. An external R survey reference checks binary regression covariance and domain means; R nnet plus numerical Hessian and survey::svyrecvar independently checks multinomial covariance. This validates the implemented with-replacement approximation, not every assumption about nonresponse, calibration, or disease ascertainment.
+
+Primary prevalence is conditional on explicit core-question yes/no and geographic eligibility. It must not be quoted as an unconditional BRFSS national diabetes estimate. Core-question three-class results measure reported borderline diagnosis, not complete biological prediabetes. Optional PREDIAB1 national inference is not enabled until module/version eligibility and weight provenance are established.
+
+Table 1's `n` is the nonmissing unweighted denominator for each estimate; cohort.json separately provides outcome counts. Category-specific weighted proportions are in `estimate`. Do not mislabel the denominator as a category frequency. Boundary proportions can have degenerate Taylor intervals, so sparse categories require manual inspection and an alternative defensible interval method before publication.
+
+Complete-case associations can be selected by missingness, and deterministic median/mode imputation does not propagate imputation uncertainty. Neither analysis proves MAR. General health, physical health and healthcare use may be downstream of diagnosis. Mutual adjustment does not identify causal effects. Functional-form assumptions, separation, broad intervals and conditioning on mediating variables require domain review before submission. Coefficient ORs are prevalence odds ratios.
+
+Prediction development scores are used both for candidate selection and threshold selection and are consequently optimistic. Only the frozen final test batch estimates performance after development. Test bootstrap intervals condition on fitted models and treat test respondents as exchangeable; they are not design-based population intervals. Weighted prediction metrics are point estimates without survey-valid predictive intervals. Feature rankings concern predictive utility, not intervention effects.
+
+Quick real-data execution is a genuine held-out evaluation of models trained on up to 4,000 original-data respondents. It does not establish results for full-training standard/extended experiments. Synthetic standard-profile experiments validate implementation, not empirical superiority. An 82.26% target cannot be compared directly across different processed cohorts/outcomes.
+
+No full faithful Chang replication is asserted. Dataset B requires explicit user-provided provenance. No existing PPTK repository was present or identified in the workspace; none of its definitions or results were imported. Exact external validity, clinical utility, full multiple-imputation inference, a complete systematic review and actual Colab runtime execution remain additional work before publication-grade claims.
+
+The test-access guard rejects interrupted/corrupt ledgers and tampered frozen models. A new run directory is an engineering separation, not a scientific reset if the same respondents' test results have already influenced changes. Real-data development preceding final evaluation used unchanged prespecified features and model-selection criteria. Synthetic debugging is separately recorded and is not concealed as real test access.

@@ -1,0 +1,7 @@
+{
+  "scope": "16 DEVELOPMENT input rows only; no final test accessed",
+  "n": 16,
+  "model_sha256": "0cd42c7da2cf51330e80ef0cb4bd7dd41debbfed91d39b8682b7464295568aab",
+  "probabilities_finite": true,
+  "row_sums_one": true
+}

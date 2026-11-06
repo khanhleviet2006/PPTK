@@ -1,0 +1,7 @@
+{
+  "seed": 2015,
+  "cohort_ids_hash": "87f06ad4f1700ca07b9d77bd182e1b41a3ede4da4aecbc032e4e94353a802b3b",
+  "test_ids_hash": "7b6bda5540537a29bcfd22dcb87799679b14cd530bf0e1da5c6e39bfb620f599",
+  "n_train": 338046,
+  "n_test": 84512
+}

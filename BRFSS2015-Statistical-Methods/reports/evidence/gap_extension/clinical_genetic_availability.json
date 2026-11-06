@@ -1,0 +1,37 @@
+{
+  "source": "CDC2015 codebook",
+  "codebook_sha256": "238bdeecb39c35e871384473cb24c02e3866e4f719da8fcf42154a35c051faca",
+  "matches": [
+    {
+      "term": "PDIABTST",
+      "found": true,
+      "context": ".01, HIVTST6, is coded 2, 7, 9, or Missing \n327,938   \n \n \nHad a test for high blood sugar or diabetes in the past three years? \nModule: 1.1    Pre- Diabetes Type: Num \nColumn: 287 SAS Variable Name: PDIABTST \nPrologue:  \nDescription: Have you had a test for high blood sugar or diabetes within the past three years? \nValue Value Label Frequency Percentage \nWeighted \nPercentage \n1 Yes 50,705 61.27 54.66 \n2 No 28,188 34.06 40.66 \n7 Don\u2019t know/Not Sure 3,826 4.62 4.62 \n9 Refused 41 0.05 0.05 \nBLANK Not asked or Missing \nNotes: Section 06.12, DIABETE3, is coded 1 \n358,696   \n \n \nBEHAVIORAL RISK FACTOR SURVEILLANCE SYSTEM \nCODEBOOK REPORT, 2015 \nLand-Line and Cell-Phone data \n \n \n 50 of 137    August 23, 2016 \nEver been told by a doctor or other health professional that you have pre-diabetes or borderline diabetes? \nModule: 1.2    Pre- Diabetes Type: Num \nColumn: 288 SAS Variable Name: PREDIAB1 \nPrologue:  \nDescription: Have you ever been told by a doctor or other health professional that you have pre-diabetes or borderline diabetes?  \n(If \u201cYes\u201d and respondent is female, ask: \u201cWas this only when you were pregnant?\u201d) \nValue Value Label Frequency Percentage \nWeighted \nPercentage \n1 Yes 8,5"
+    },
+    {
+      "term": "BLDSUGAR",
+      "found": true,
+      "context": "TEM \nCODEBOOK REPORT, 2015 \nLand-Line and Cell-Phone data \n \n \n 51 of 137    August 23, 2016 \nHow Often Check Blood for Glucose \nModule: 2.2    Diabetes  Type: Num \nColumn: 290-292 SAS Variable Name: BLDSUGAR \nPrologue:  \nDescription: About how often do you check your blood for glucose or sugar?  Include times when checked by a family member or \nfriend, but do NOT include times when checked by a health professional. \nValue Value Label Frequency Percentage \nWeighted \nPercentage \n101 - 199 Times per day \nNotes: 1 _ _ Times per day \n17,883 60.78 60.47 \n201 - 299 Times per week \nNotes: 2 _ _ Times per week \n4,734 16.09 16.40 \n301 - 399 Times per month \nNotes: 3 _ _ Times per month \n1,616 5.49 5.87 \n401 - 499 Times per year \nNotes: 4 _ _ Times per year \n717 2.44 2.36 \n777 Don\u2019t know/Not sure 436 1.48 1.67 \n888 Never 3,954 13.44 12.96 \n999 Refused 83 0.28 0.27 \nBLANK Not asked or Missing \nNotes: Section 06.12, DIABETE3, is coded 2, 3, 4, 7, 9, or Missing \n412,033   \n \n \nHow Often Check Feet for Sores or Irritations \nModule: 2.3    Diabetes  Type: Num \nColumn: 293-295 SAS Variable Name: FEETCHK2 \nPrologue:  \nDescription: About how often do you check your feet for any sores or irritations?"
+    },
+    {
+      "term": "DIABETE3",
+      "found": true,
+      "context": "2 96.10 97.00 \n7 Don\u2019t know / Not sure 1,375 0.31 0.29 \n9 Refused 202 0.05 0.04 \n \n \nEver told) you have diabetes \nSection: 6.12   Chronic Health Conditions  Type: Num \nColumn: 117 SAS Variable Name: DIABETE3 \nPrologue:  \nDescription: (Ever told) you have diabetes  (If \"Yes\" and respondent is female, ask \"Was this only when you were pregnant?\". If \nRespondent says pre-diabetes or borderline diabetes, use response code 4.) \nValue Value Label Frequency Percentage \nWeighted \nPercentage \n1 Yes 57,256 12.97 10.48 \n2 Yes, but female told only during pregnancy--- -Go to Section 07.7.1 \nSEX \n3,608 0.82 0.95 \n3 No--- -Go to Section 07.7.1 SEX 372,104 84.29 86.77 \n4 No, pre-diabetes or borderline diabetes--- -Go to Section 07.7.1 SEX 7,690 1.74 1.60 \n7 Don\u2019t know/Not Sure--- -Go to Section 07.7.1 SEX 598 0.14 0.16 \n9 Refused--- -Go to Section 07.7.1 SEX 193 0.04 0.04 \nBLANK Not asked or Missing 7   \n \n \nAge When Told Diabetic \nSection: 6.13   Chronic Health Conditions  Type: Num \nColumn: 118-119 SAS Variable Name: DIABAGE2 \nPrologue:  \nDescription: How old were you when you were told you have diabetes? \nValue Value Label Frequency Percentage \nWeighted \nPercentage \n1 - 97 Age in years  [97 = "
+    },
+    {
+      "term": "INSULIN",
+      "found": true,
+      "context": "LANK Not asked or Missing \nNotes: Section 06.12, DIABETE3, is coded 1; If Section 06.12, \nDIABETE3, is coded 4 automatically code Module 01.02, PREDIAB1, \nequal to 1 (yes); \n358,696   \n \n \nNow Taking Insulin \nModule: 2.1    Diabetes  Type: Num \nColumn: 289 SAS Variable Name: INSULIN \nPrologue:  \nDescription: Are you now taking insulin? \nValue Value Label Frequency Percentage \nWeighted \nPercentage \n1 Yes 9,602 32.63 32.36 \n2 No 19,788 67.25 67.55 \n9 Refused 34 0.12 0.09 \nBLANK Not asked or Missing \nNotes: Section 06.12, DIABETE3, is coded 2, 3, 4, 7, 9, or Missing \n412,032   \n \n \nBEHAVIORAL RISK FACTOR SURVEILLANCE SYSTEM \nCODEBOOK REPORT, 2015 \nLand-Line and Cell-Phone data \n \n \n 51 of 137    August 23, 2016 \nHow Often Check Blood for Glucose \nModule: 2.2    Diabetes  Type: Num \nColumn: 290-292 SAS Variable Name: BLDSUGAR \nPrologue:  \nDescription: About how often do you check your blood for glucose or sugar?  Include times when checked by a family member or \nfriend, but do NOT include times when checked by a health professional. \nValue Value Label Frequency Percentage \nWeighted \nPercentage \n101 - 199 Times per day \nNotes: 1 _ _ Times per day \n17,883 60.78 60.47 \n201 - 299 Times per"
+    },
+    {
+      "term": "HbA1c",
+      "found": false,
+      "context": null
+    },
+    {
+      "term": "genetic",
+      "found": false,
+      "context": null
+    }
+  ],
+  "conclusion": "DIABETE3 is self-reported diagnosis; testing/monitoring questions and medication are not measured blood glucose, HbA1c or genetic biomarkers. External clinical/genetic data required; clinical verification not implemented."
+}

@@ -1,0 +1,14 @@
+{
+  "synthetic": true,
+  "valid_fold_local_BA": [
+    0.9245098039215687,
+    0.9566666666666667,
+    0.92875
+  ],
+  "deliberately_invalid_global_resampling_BA": [
+    0.97,
+    0.9566666666666667,
+    0.96
+  ],
+  "warning": "EDUCATIONAL_ONLY_NOT_ELIGIBLE_FOR_SELECTION. Validation populations differ after global SMOTE; difference is not a causal leakage effect and is not evidence about Chang."
+}
